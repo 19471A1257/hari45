@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Captain Hari | Full Stack Hero</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <title>Spidey Hari | Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -13,136 +13,154 @@
     }
 
     body {
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(135deg, #0a0f2c 0%, #1e2a78 100%);
-      color: #e6f0ff;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(145deg, #0d0d0d, #e50914);
+      color: #fefefe;
       overflow-x: hidden;
-    }
-
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
       position: relative;
-      overflow: hidden;
     }
 
-    .hero h1 {
-      font-size: 3.5rem;
-      color: #facc15;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      margin-top: 1rem;
-      color: #60a5fa;
-      animation: fadeInUp 1.5s ease-out;
-    }
-
-    .hero-bg {
+    .web-bg {
       position: absolute;
       top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png');
-      opacity: 0.08;
-      animation: moveBg 200s linear infinite;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/web.png');
+      opacity: 0.05;
       z-index: 0;
     }
 
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      z-index: 1;
+      position: relative;
     }
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      border-left: 5px solid #facc15;
-      padding-left: 1rem;
-      color: #facc15;
+    header h1 {
+      font-size: 3rem;
+      color: #f5c518;
+      text-shadow: 2px 2px 5px #000;
+      animation: swingIn 1s ease;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #a0f0ff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: #1a1a1a;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    nav a {
+      color: #f5c518;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      z-index: 1;
+      position: relative;
     }
 
     .card {
-      background: #ffffff10;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
       padding: 2rem;
-      border-radius: 15px;
       margin-bottom: 2rem;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      animation: slideIn 0.8s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #ffcc00;
+      margin-bottom: 1rem;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      font-size: 0.9rem;
-      background-color: #0f172a;
-      color: #94a3b8;
+      background: #0a0a0a;
+      color: #aaa;
     }
 
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
+    a {
+      color: #ff6666;
+    }
+
+    @keyframes swingIn {
+      0% { transform: rotateX(90deg); opacity: 0; }
+      100% { transform: rotateX(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes moveBg {
-      from { background-position: 0 0; }
-      to { background-position: 1000px 0; }
-    }
-
-    @keyframes slideIn {
-      from { transform: translateX(-30px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="hero-bg"></div>
-    <h1>Captain Hari</h1>
-    <p>Full Stack Avenger | React, Spring Boot & AWS Defender</p>
-  </div>
+  <div class="web-bg"></div>
+  <header>
+    <h1>Spidey Hari</h1>
+    <p>Friendly Neighborhood Full Stack Developer</p>
+  </header>
 
-  <section>
-    <h2 class="section-title">🛠️ Skills</h2>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#certs">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>🕷️ About Me</h2>
     <div class="card">
-      Proficient in Java, Spring Boot, React, PostgreSQL, Docker, CI/CD pipelines, and AWS Cloud Services.
+      I’m Harichandraprasad Sriram, a Full Stack Developer inspired by heroes who solve problems quickly and creatively.
+      Like Spidey, I build web solutions using React, Spring Boot, AWS, and secure backend systems with great power and great responsibility.
     </div>
   </section>
 
-  <section>
-    <h2 class="section-title">🚀 Projects</h2>
+  <section id="projects">
+    <h2>💻 Projects</h2>
     <div class="card">
-      <strong>Smart Feedback System:</strong> Secure and anonymous feedback portal with role-based access and analytics.
+      <strong>Smart Feedback System:</strong> Secure feedback app with analytics and access roles using Spring Boot + PostgreSQL.
     </div>
     <div class="card">
-      <strong>eCommerce Platform:</strong> Shopping system with JWT auth, secure payments, and order tracking.
-    </div>
-  </section>
-
-  <section>
-    <h2 class="section-title">📜 Certifications</h2>
-    <div class="card">
-      AWS Cloud Practitioner, Java Full Stack Developer, Agile with Jira, AI for Everyone - Coursera.
+      <strong>eCommerce Platform:</strong> Shopping platform with payment gateway, JWT security, and React frontend.
     </div>
   </section>
 
-  <section>
-    <h2 class="section-title">📫 Contact</h2>
+  <section id="certs">
+    <h2>📜 Certifications</h2>
+    <div class="card">
+      AWS Cloud Practitioner, Java Full Stack Developer, Agile Jira, AI for Everyone - Coursera.
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>📫 Contact</h2>
     <div class="card">
       Email: hariprasad45x@gmail.com<br>
-      LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank" style="color:#60a5fa">linkedin.com/in/hari-sriram</a><br>
-      GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank" style="color:#60a5fa">github.com/HarichandraprasadSri</a>
+      LinkedIn: <a href="https://linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a><br>
+      GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank">github.com/HarichandraprasadSri</a>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Captain Hari — All Rights Reserved
+    &copy; 2025 Spidey Hari — All Rights Reserved
   </footer>
 </body>
 </html>
