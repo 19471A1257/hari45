@@ -1,26 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harichandraprasad | Web-Slinging Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <title>Hari Sriram | Web-Slinger Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
   <style>
     :root {
-      --bg-dark: #0a0a0a;
-      --text-dark: #f5f5f5;
-      --accent: #e62429;
-      --blue: #155eec;
-      --glass-bg: rgba(255, 255, 255, 0.05);
+      --red: #e23636;
+      --blue: #1e3a8a;
+      --dark: #0c0c0c;
+      --glass: rgba(255, 255, 255, 0.1);
+      --text-light: #f3f4f6;
+      --text-dark: #1a202c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html[data-theme="light"] {
+      background-color: #ffffff;
+      color: var(--text-dark);
+    }
+
+    html[data-theme="dark"] {
+      background-color: var(--dark);
+      color: var(--text-light);
     }
 
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      transition: background 0.5s, color 0.5s;
     }
 
     #tsparticles {
@@ -33,109 +49,105 @@
     header {
       text-align: center;
       padding: 4rem 2rem;
-      background: linear-gradient(145deg, var(--accent), var(--blue));
+      background: var(--red);
       color: white;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     header h1 {
-      font-family: 'Orbitron', sans-serif;
       font-size: 3rem;
-      margin-bottom: 0.5rem;
     }
 
     header p {
       font-size: 1.2rem;
-      font-weight: 300;
     }
 
     nav {
+      background: var(--blue);
+      color: white;
       display: flex;
       justify-content: center;
-      gap: 2rem;
       flex-wrap: wrap;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
+      gap: 1.2rem;
+      padding: 1rem;
     }
 
     nav a {
-      color: var(--text-dark);
+      color: white;
       text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--accent);
+      font-weight: bold;
+      font-size: 1rem;
     }
 
     section {
+      padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
-      padding: 4rem 2rem;
     }
 
     h2 {
-      color: var(--accent);
       font-size: 2rem;
-      border-left: 5px solid var(--blue);
-      padding-left: 1rem;
       margin-bottom: 2rem;
+      color: var(--red);
+      border-left: 4px solid var(--blue);
+      padding-left: 1rem;
     }
 
     .card {
-      background: var(--glass-bg);
+      background: var(--glass);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
+      -webkit-backdrop-filter: blur(10px);
       padding: 2rem;
+      border-radius: 12px;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-      transition: 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
-      transform: scale(1.02);
+      transform: translateY(-5px);
     }
 
     .photo {
-      float: right;
       width: 180px;
       height: 180px;
       border-radius: 50%;
       object-fit: cover;
       margin-left: 2rem;
+      float: right;
       box-shadow: 0 0 15px var(--blue);
+    }
+
+    @media (max-width: 768px) {
+      .photo {
+        float: none;
+        display: block;
+        margin: 1rem auto;
+      }
+
+      .card {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
     }
 
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      background-color: #111;
-      color: #aaa;
-    }
-
-    button.toggle {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: var(--accent);
+      background: var(--blue);
       color: white;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
     }
 
-    @media (max-width: 600px) {
-      .photo {
-        float: none;
-        display: block;
-        margin: 1rem auto;
-      }
+    .contact a {
+      color: var(--blue);
+      text-decoration: none;
     }
   </style>
 </head>
@@ -144,7 +156,7 @@
 
   <header>
     <h1>Harichandraprasad Sriram</h1>
-    <p>🕷️ Full Stack Developer | JavaScript Enthusiast | Cloud Explorer</p>
+    <p>🕷️ Full Stack Developer | Java Enthusiast | Cloud Explorer</p>
   </header>
 
   <nav>
@@ -156,44 +168,49 @@
   </nav>
 
   <section id="about">
-    <h2>🕸️ About Me</h2>
-    <div class="card">
+    <h2>About Me</h2>
+    <div class="card" style="display: flex; flex-wrap: wrap; align-items: center;">
       <img src="hari5-photo.jpg" alt="Hari Photo" class="photo" />
-      <p>Hello! I'm a web-slinging full stack developer who enjoys solving real-world problems through elegant code. With a Master’s in Information Systems from Saint Louis University and experience building Java + React applications, I'm here to swing through bugs and deploy like a hero.</p>
+      <p style="flex: 1;">
+        I’m Harichandraprasad Sriram, a passionate Full Stack Developer with a Master's in Information Systems from Saint Louis University.
+        Skilled in Java, Spring Boot, React, and AWS. Inspired by superheroes and driven to build heroic software.
+      </p>
     </div>
   </section>
 
   <section id="projects">
-    <h2>💼 Projects</h2>
+    <h2>Projects</h2>
     <div class="card">
       <h3>Smart Feedback System</h3>
-      <p>Role-based anonymous feedback portal built using Spring Boot & PostgreSQL. Admin dashboards with real-time analytics.</p>
+      <p>Secure platform for anonymous feedback with role-based dashboards. Built using Spring Boot and PostgreSQL.</p>
     </div>
     <div class="card">
       <h3>eCommerce Platform</h3>
-      <p>Feature-rich shopping app with React, secured with JWT Auth and integrated Razorpay payments. Backend on Java.</p>
+      <p>React + Java-powered shop with JWT authentication, payment gateway integration, and admin controls.</p>
     </div>
   </section>
 
   <section id="certifications">
-    <h2>📜 Certifications</h2>
+    <h2>Certifications</h2>
     <div class="card">
       <h3>AWS Certified Cloud Practitioner</h3>
-      <p>Demonstrates foundational knowledge of AWS infrastructure and security best practices.</p>
+      <p>Solid understanding of AWS global cloud infrastructure, services, and security.</p>
     </div>
     <div class="card">
       <h3>Java Full Stack Developer Certificate</h3>
-      <p>Completed intensive hands-on program including Spring Boot, REST APIs, and React.</p>
+      <p>Hands-on experience with Spring Boot, REST APIs, React, and DevOps tools.</p>
     </div>
     <div class="card">
-      <h3>AI For Everyone - Coursera</h3>
-      <p>Introductory course by Andrew Ng on practical AI. <br /><a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 View Certificate</a></p>
+      <h3>Python Core - SoloLearn</h3>
+      <p>Demonstrated theoretical Python knowledge.
+        <a href="solo%20learn%20certificate.pdf" download>📄 View Certificate</a>
+      </p>
     </div>
   </section>
 
   <section id="contact">
-    <h2>📫 Contact</h2>
-    <div class="card">
+    <h2>Contact</h2>
+    <div class="card contact">
       <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a></p>
       <p>GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank">github.com/HarichandraprasadSri</a></p>
@@ -201,39 +218,72 @@
   </section>
 
   <section id="resume">
-    <h2>📄 Resume</h2>
+    <h2>Resume</h2>
     <div class="card">
-      <a href="Hari-Chandra-Prasad-Resume.pdf" download style="color:#38bdf8; font-weight:bold;">⬇️ Download My Resume</a>
+      <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color:var(--blue); font-weight:bold;">📄 Download My Resume</a>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Harichandraprasad Sriram | Swinging through Code
+    &copy; 2025 Harichandraprasad Sriram — All Rights Reserved 🕷️
   </footer>
 
-  <button class="toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
-
   <script>
-    function toggleTheme() {
+    // Toggle Theme
+    const toggleTheme = () => {
       const current = document.documentElement.getAttribute('data-theme');
       document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
-    }
+    };
+    const toggleBtn = document.createElement('button');
+    toggleBtn.textContent = '🌓 Toggle Theme';
+    toggleBtn.style.position = 'fixed';
+    toggleBtn.style.bottom = '1rem';
+    toggleBtn.style.right = '1rem';
+    toggleBtn.style.padding = '0.5rem 1rem';
+    toggleBtn.style.backgroundColor = '#e23636';
+    toggleBtn.style.color = '#fff';
+    toggleBtn.style.border = 'none';
+    toggleBtn.style.borderRadius = '5px';
+    toggleBtn.style.cursor = 'pointer';
+    toggleBtn.onclick = toggleTheme;
+    document.body.appendChild(toggleBtn);
 
+    // tsParticles init
     tsParticles.load("tsparticles", {
-      background: { color: "transparent" },
+      background: { color: { value: "#0c0c0c" } },
       fpsLimit: 60,
-      interactivity: {
-        events: { onHover: { enable: true, mode: "repulse" }, resize: true },
-        modes: { repulse: { distance: 100, duration: 0.4 } }
-      },
       particles: {
-        color: { value: "#e62429" },
-        links: { enable: true, color: "#155eec", distance: 150 },
-        move: { enable: true, speed: 2 },
-        number: { value: 50 },
-        opacity: { value: 0.6 },
+        number: { value: 80 },
+        color: { value: "#e23636" },
         shape: { type: "circle" },
-        size: { value: 3 }
+        opacity: { value: 0.4 },
+        size: { value: 3 },
+        links: {
+          enable: true,
+          distance: 150,
+          color: "#1e3a8a",
+          opacity: 0.3,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1.5,
+          direction: "none",
+          random: false,
+          straight: false,
+          outModes: { default: "out" }
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { quantity: 4 }
+        }
       },
       detectRetina: true
     });
