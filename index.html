@@ -1,160 +1,150 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Spider-Man Portfolio | Harichandraprasad Sriram</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harichandraprasad | Web-Slinging Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg-dark: #0a0a0a;
+      --text-dark: #f5f5f5;
+      --accent: #e62429;
+      --blue: #155eec;
+      --glass-bg: rgba(255, 255, 255, 0.05);
     }
 
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      transition: background 0.5s, color 0.5s;
-      background: linear-gradient(135deg, #0c0f1d, #1a1a2e);
-      color: #e2e8f0;
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
       overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
+    #tsparticles {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png');
-      opacity: 0.04;
+      width: 100%;
+      height: 100%;
       z-index: -1;
     }
 
     header {
       text-align: center;
       padding: 4rem 2rem;
-      background: #e11d48;
+      background: linear-gradient(145deg, var(--accent), var(--blue));
       color: white;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     }
 
     header h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 3rem;
+      margin-bottom: 0.5rem;
     }
 
     header p {
       font-size: 1.2rem;
-      margin-top: 0.5rem;
+      font-weight: 300;
     }
 
     nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(8px);
-      padding: 1rem;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
     }
 
     nav a {
-      color: #fcd34d;
+      color: var(--text-dark);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
     }
 
     section {
-      padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
+      padding: 4rem 2rem;
     }
 
     h2 {
-      font-size: 1.8rem;
-      border-left: 4px solid #e11d48;
+      color: var(--accent);
+      font-size: 2rem;
+      border-left: 5px solid var(--blue);
       padding-left: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
+      border-radius: 12px;
       padding: 2rem;
       margin-bottom: 2rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-6px);
+      transform: scale(1.02);
     }
 
-    .photo-box {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .photo-box img {
+    .photo {
+      float: right;
       width: 180px;
       height: 180px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #fcd34d;
-      box-shadow: 0 0 12px #fcd34d;
+      margin-left: 2rem;
+      box-shadow: 0 0 15px var(--blue);
     }
 
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      background: #0f172a;
-      color: #cbd5e0;
+      background-color: #111;
+      color: #aaa;
     }
 
-    .contact a {
-      color: #fcd34d;
-      text-decoration: none;
-    }
-
-    /* Toggle Button */
-    .theme-toggle {
+    button.toggle {
       position: fixed;
       bottom: 1rem;
       right: 1rem;
-      background: #fcd34d;
+      background: var(--accent);
+      color: white;
       border: none;
-      color: #1a1a1a;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .photo-box {
-        flex-direction: column;
-        align-items: center;
-      }
-      section {
-        padding: 2rem 1rem;
+      .photo {
+        float: none;
+        display: block;
+        margin: 1rem auto;
       }
     }
   </style>
 </head>
 <body>
+  <div id="tsparticles"></div>
+
   <header>
     <h1>Harichandraprasad Sriram</h1>
-    <p>🕸️ Full Stack Web Developer | Cloud Enthusiast</p>
+    <p>🕷️ Full Stack Developer | JavaScript Enthusiast | Cloud Explorer</p>
   </header>
 
   <nav>
@@ -166,52 +156,46 @@
   </nav>
 
   <section id="about">
-    <h2>🕷️ About Me</h2>
-    <div class="card photo-box">
-      <img src="hari5-photo.jpg" alt="Hari's Photo">
-      <p>
-        Hi! I’m Harichandraprasad Sriram, a passionate Full Stack Developer with a Master’s degree in Information Systems. I specialize in crafting dynamic web applications using Java, Spring Boot, React, and AWS. I thrive at the intersection of creativity and code—always ready to sling some logic like Spider-Man slings webs!
-      </p>
+    <h2>🕸️ About Me</h2>
+    <div class="card">
+      <img src="hari5-photo.jpg" alt="Hari Photo" class="photo" />
+      <p>Hello! I'm a web-slinging full stack developer who enjoys solving real-world problems through elegant code. With a Master’s in Information Systems from Saint Louis University and experience building Java + React applications, I'm here to swing through bugs and deploy like a hero.</p>
     </div>
   </section>
 
   <section id="projects">
-    <h2>💡 Projects</h2>
+    <h2>💼 Projects</h2>
     <div class="card">
       <h3>Smart Feedback System</h3>
-      <p>A secure feedback platform with role-based access and analytics. Built using Spring Boot and PostgreSQL.</p>
+      <p>Role-based anonymous feedback portal built using Spring Boot & PostgreSQL. Admin dashboards with real-time analytics.</p>
     </div>
     <div class="card">
       <h3>eCommerce Platform</h3>
-      <p>Full-stack shopping site with JWT authentication and Stripe integration. Tech: React + Java backend.</p>
+      <p>Feature-rich shopping app with React, secured with JWT Auth and integrated Razorpay payments. Backend on Java.</p>
     </div>
   </section>
 
   <section id="certifications">
-    <h2>🎓 Certifications</h2>
+    <h2>📜 Certifications</h2>
     <div class="card">
       <h3>AWS Certified Cloud Practitioner</h3>
-      <p>Validated knowledge of AWS Cloud, services, and security best practices.</p>
+      <p>Demonstrates foundational knowledge of AWS infrastructure and security best practices.</p>
     </div>
     <div class="card">
-      <h3>Java Full Stack Developer</h3>
-      <p>Mastered Spring Boot, REST APIs, React, and deployment tools in production projects.</p>
+      <h3>Java Full Stack Developer Certificate</h3>
+      <p>Completed intensive hands-on program including Spring Boot, REST APIs, and React.</p>
     </div>
     <div class="card">
-      <h3>AI for Everyone – Coursera</h3>
-      <p>By Andrew Ng – <a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">View Certificate</a></p>
-    </div>
-    <div class="card">
-      <h3>Python Core – SoloLearn</h3>
-      <p><a href="solo learn certificate.pdf" download>📄 Download Certificate</a></p>
+      <h3>AI For Everyone - Coursera</h3>
+      <p>Introductory course by Andrew Ng on practical AI. <br /><a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 View Certificate</a></p>
     </div>
   </section>
 
   <section id="contact">
-    <h2>📬 Contact</h2>
-    <div class="card contact">
+    <h2>📫 Contact</h2>
+    <div class="card">
       <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram-801777241</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a></p>
       <p>GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank">github.com/HarichandraprasadSri</a></p>
     </div>
   </section>
@@ -219,22 +203,40 @@
   <section id="resume">
     <h2>📄 Resume</h2>
     <div class="card">
-      <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color: #fcd34d; font-weight: bold;">📥 Download My Resume</a>
+      <a href="Hari-Chandra-Prasad-Resume.pdf" download style="color:#38bdf8; font-weight:bold;">⬇️ Download My Resume</a>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Harichandraprasad Sriram — Spidey Coded 🕸️
+    &copy; 2025 Harichandraprasad Sriram | Swinging through Code
   </footer>
 
-  <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+  <button class="toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
 
   <script>
     function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+      const current = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
     }
+
+    tsParticles.load("tsparticles", {
+      background: { color: "transparent" },
+      fpsLimit: 60,
+      interactivity: {
+        events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+        modes: { repulse: { distance: 100, duration: 0.4 } }
+      },
+      particles: {
+        color: { value: "#e62429" },
+        links: { enable: true, color: "#155eec", distance: 150 },
+        move: { enable: true, speed: 2 },
+        number: { value: 50 },
+        opacity: { value: 0.6 },
+        shape: { type: "circle" },
+        size: { value: 3 }
+      },
+      detectRetina: true
+    });
   </script>
 </body>
 </html>
