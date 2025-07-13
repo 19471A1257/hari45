@@ -1,70 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hari Sriram | Developer Portfolio</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- AOS Animate On Scroll -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
   <style>
-    :root {
-      --bg-light: #f5f7fa;
-      --text-light: #1a202c;
-      --bg-dark: #0d1117;
-      --text-dark: #e2e8f0;
-      --input-dark: #2c2f35;
-      --accent: #2b6cb0;
-      --accent-hover: #1c4c88;
-      --button-shadow: rgba(0, 0, 0, 0.1);
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
-    html {
-      transition: background 0.4s ease, color 0.4s ease;
+    :root {
+      --bg-light: #f5f7fa;
+      --text-light: #1a202c;
+      --bg-dark: #1a1a2e;
+      --text-dark: #e2e8f0;
+      --accent: #2b6cb0;
     }
-
+    html[data-theme="light"] {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+    html[data-theme="dark"] {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
     body {
       font-family: 'Poppins', sans-serif;
       transition: background 0.5s, color 0.5s;
     }
-
-    body[data-theme="light"] {
-      background: var(--bg-light);
-      color: var(--text-light);
-    }
-
-    body[data-theme="dark"] {
-      background: var(--bg-dark);
-      color: var(--text-dark);
-    }
-
     header {
       padding: 4rem 2rem;
       text-align: center;
       background: var(--accent);
       color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
     header h1 {
       font-size: 3rem;
       margin-bottom: 0.5rem;
     }
-
     header p {
       font-size: 1.2rem;
     }
-
     nav {
       background: #ffffff20;
       backdrop-filter: blur(10px);
@@ -74,235 +53,122 @@
       gap: 2rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-
     nav a {
       color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
     }
-
-    .container {
+    section {
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
     }
-
-    .section-heading span {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.6s ease forwards;
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      color: var(--accent);
     }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .section-heading {
-      font-size: 2.5rem;
+    .card {
+      background: #ffffff10;
+      padding: 2rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 8px;
       margin-bottom: 2rem;
-      text-align: center;
-      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(4px);
     }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0.75rem 1.5rem;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-weight: 600;
-      cursor: pointer;
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      color: #38bdf8;
+    }
+    .contact a {
+      color: #38bdf8;
       text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 5px 10px var(--button-shadow), inset 0 -2px 0 rgba(0,0,0,0.15);
-      margin-top: 1.5rem;
     }
-
-    .btn:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), inset 0 -2px 0 rgba(0,0,0,0.2);
-    }
-
-    /* Toggle Switch */
-    .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      width: 48px;
-      height: 24px;
-      background: var(--accent);
-      border-radius: 12px;
-      padding: 2px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      z-index: 1000;
-      transition: background 0.4s;
-    }
-
-    .toggle-track {
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      position: relative;
-    }
-
-    .toggle-thumb {
-      width: 20px;
-      height: 20px;
-      background: #fff;
-      border-radius: 50%;
-      position: absolute;
-      left: 2px;
-      top: 2px;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-
-    [data-theme="dark"] .toggle-thumb {
-      transform: translateX(24px);
-      background: #fcd34d;
-    }
-
-    [data-theme="dark"] .theme-toggle {
-      background: #444;
-    }
-
-    form {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 500px;
-      margin-inline: auto;
-    }
-
-    input, textarea {
-      padding: 0.8rem 1rem;
-      border-radius: 10px;
-      border: 2px solid #ccc;
-      font-size: 1rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      background: white;
-      color: black;
-    }
-
-    body[data-theme="dark"] input,
-    body[data-theme="dark"] textarea {
-      background: var(--input-dark);
-      color: white;
-      border: 2px solid #444;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--accent);
-      outline: none;
-      box-shadow: 0 0 8px var(--accent);
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .section-heading {
-        font-size: 2rem;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background-color: #1a202c;
+      color: #cbd5e0;
     }
   </style>
 </head>
 <body>
-  <!-- Theme Toggle Switch -->
-  <div class="theme-toggle" id="theme-toggle" title="Toggle Theme">
-    <div class="toggle-track">
-      <div class="toggle-thumb" id="toggle-thumb"></div>
-    </div>
-  </div>
-
-  <!-- HEADER -->
-  <header data-aos="fade-down">
-    <h1>Hari Sriram</h1>
-    <p>Java Full Stack Developer</p>
+  <header>
+    <h1>Harichandraprasad Sriram</h1>
+    <p>Full Stack Developer | Cloud Enthusiast | Creator</p>
   </header>
 
-  <!-- NAV -->
-  <nav data-aos="fade-up">
+  <nav>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
+    <a href="#resume">Resume</a>
   </nav>
 
-  <!-- CONTENT -->
-  <div class="container">
-    <h2 class="section-heading" id="about">About Me</h2>
-    <p data-aos="fade-up">I am a passionate Java full-stack developer with experience in building web applications using Spring Boot, React, and modern development tools.</p>
-    <a href="#projects" class="btn" data-aos="zoom-in"><i class="fas fa-arrow-down"></i> See My Projects</a>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>Versatile full stack developer passionate about crafting seamless digital experiences. I enjoy blending code and creativity to deliver modern, performant, and engaging applications.</p>
+    </div>
+  </section>
 
-    <h2 class="section-heading" id="projects">Projects</h2>
-    <p data-aos="fade-up">Explore some of my recent work including RESTful APIs, responsive frontend UIs, and integrated DevOps pipelines.</p>
-    <a href="https://github.com/yourusername" target="_blank" class="btn" data-aos="zoom-in"><i class="fab fa-github"></i> View GitHub</a>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Smart Feedback System</h3>
+      <p>A secure platform for collecting anonymous feedback with role-based access and analytics. Built with Spring Boot and PostgreSQL.</p>
+    </div>
+    <div class="card">
+      <h3>eCommerce Platform</h3>
+      <p>Full-stack shopping site with JWT authentication, payment gateway integration, and order history using React and Java backend.</p>
+    </div>
+  </section>
 
-    <h2 class="section-heading" id="resume">Resume</h2>
-    <p data-aos="fade-up">Check out my qualifications, work experience, education, and skills.</p>
-    <a href="resume.pdf" download class="btn" data-aos="zoom-in"><i class="fas fa-download"></i> Download Resume</a>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card contact">
+      <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram-801777241</a></p>
+      <p>GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank">github.com/HarichandraprasadSri</a></p>
+    </div>
+  </section>
 
-    <h2 class="section-heading" id="contact">Contact</h2>
-    <p data-aos="fade-up">Let's connect! Reach out via this form or my LinkedIn/GitHub.</p>
+  <section id="resume">
+    <h2>Resume</h2>
+    <div class="card">
+      <a href="Hari-Chandra-Prasad-Resume.pdf" download style="color:#38bdf8; font-weight:bold;">📄 Download My Resume</a>
+    </div>
+  </section>
 
-    <form data-aos="fade-up">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="4" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
-    </form>
-  </div>
+  <footer>
+    &copy; 2025 Harichandraprasad Sriram — All Rights Reserved
+  </footer>
 
-  <!-- AOS + Toggle Theme Script -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init();
-    const root = document.documentElement;
-    const toggle = document.getElementById('theme-toggle');
-    const thumb = document.getElementById('toggle-thumb');
-
-    // Detect system preference or saved setting
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme');
-    root.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
-
-    toggle.addEventListener('click', () => {
-      const currentTheme = root.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-    });
-
-    // Animate Section Headings
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".section-heading").forEach(el => {
-        const text = el.innerText;
-        el.innerHTML = "";
-        text.split("").forEach((char, i) => {
-          const span = document.createElement("span");
-          span.textContent = char;
-          span.style.animationDelay = `${i * 0.05}s`;
-          el.appendChild(span);
-        });
-      });
-    });
+    const toggleTheme = () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    };
+    const toggleBtn = document.createElement('button');
+    toggleBtn.textContent = '🌓 Toggle Theme';
+    toggleBtn.style.position = 'fixed';
+    toggleBtn.style.bottom = '1rem';
+    toggleBtn.style.right = '1rem';
+    toggleBtn.style.padding = '0.5rem 1rem';
+    toggleBtn.style.backgroundColor = '#38bdf8';
+    toggleBtn.style.color = '#fff';
+    toggleBtn.style.border = 'none';
+    toggleBtn.style.borderRadius = '5px';
+    toggleBtn.style.cursor = 'pointer';
+    toggleBtn.onclick = toggleTheme;
+    document.body.appendChild(toggleBtn);
   </script>
 </body>
 </html>
