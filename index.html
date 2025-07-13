@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CSSPlugin.min.js"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hari Sriram | Developer Portfolio</title>
@@ -103,7 +106,19 @@
       color: #cbd5e0;
     }
   </style>
+ 
 </head>
+   .reveal-section {
+  opacity: 0;
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 1.2s ease-out, opacity 0.5s ease-in;
+}
+
+.reveal-section.show {
+  opacity: 1;
+  clip-path: circle(150% at 50% 50%);
+}
+
 <body data-theme="light">
   <header>
     <h1>Harichandraprasad Sriram</h1>
@@ -185,5 +200,25 @@
     toggleBtn.onclick = toggleTheme;
     document.body.appendChild(toggleBtn);
   </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".reveal-section");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>
+
 </body>
 </html>
