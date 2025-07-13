@@ -1,250 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Hari Chandra Prasad – Developer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harichandraprasad Sriram | Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
-    body {
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      line-height: 1.6;
-      color: #fff;
-      background: #000;
       overflow-x: hidden;
+      background: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #141414, #0d0d0d);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+      color: #fdd835;
     }
 
-    #tsparticles, #matrixCanvas {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
-    #rain {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-      background-image: url('https://i.imgur.com/UYBdKfD.gif');
-      opacity: 0.2;
-    }
-
-    #hero-video {
+    #tsparticles {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
       object-fit: cover;
-      z-index: -3;
-      opacity: 0.3;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      filter: brightness(0.2) blur(2px);
     }
 
     header {
       text-align: center;
-      padding: 100px 20px 60px;
+      padding: 4rem 2rem;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2;
       position: relative;
     }
 
-    header img {
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-    }
-
     header h1 {
-      margin: 15px 0 5px;
-      font-size: 24px;
-      font-weight: 600;
+      font-size: 3rem;
+      color: #fdd835;
     }
 
-    header p { margin: 0; color: #ddd; }
+    header p {
+      font-size: 1.2rem;
+    }
 
     nav {
-      background: rgba(0, 0, 0, 0.3);
-      text-align: center;
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
-      z-index: 10;
+      z-index: 2;
+      position: relative;
     }
 
     nav a {
-      color: #fff;
-      margin: 0 15px;
+      color: #fdd835;
       text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
+      font-weight: 600;
     }
 
     section {
-      padding: 60px 20px;
-      max-width: 900px;
+      padding: 3rem 2rem;
+      max-width: 1000px;
       margin: auto;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h2 {
+      color: #ff4444;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
       backdrop-filter: blur(10px);
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-      margin-bottom: 30px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s;
     }
 
-    section h2 {
-      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-      padding-bottom: 10px;
-    }
-
-    ul { list-style: none; padding: 0; }
-    li { margin: 15px 0; }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #fdd835;
     }
 
     footer {
-      background: rgba(0, 0, 0, 0.3);
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #aaa;
+      padding: 2rem;
+      background: rgba(0,0,0,0.7);
+      color: #fdd835;
+      backdrop-filter: blur(10px);
     }
 
-    a { color: #63dafb; }
-    a:hover { text-decoration: underline; }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+    .contact a {
+      color: #fdd835;
+      text-decoration: none;
     }
 
-    input, textarea {
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      font-size: 16px;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      resize: vertical;
-    }
-
-    input::placeholder, textarea::placeholder {
-      color: #bbb;
-    }
-
-    button {
-      background: #63dafb;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #39c0e0;
-    }
-
-    .animate {
-      opacity: 0;
-      transform: translateY(60px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .animate.visible {
-      opacity: 1;
-      transform: translateY(0);
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      section { padding: 2rem 1rem; }
+      .card { padding: 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-<video autoplay muted loop id="hero-video">
-  <source src="https://cdn.coverr.co/videos/coverr-typing-code-1054/1080p.mp4" type="video/mp4">
-</video>
-<div id="tsparticles"></div>
-<canvas id="matrixCanvas"></canvas>
-<div id="rain"></div>
+  <!-- Particle Background -->
+  <div id="tsparticles"></div>
 
-<header>
-  <img src="hari5-photo.jpg" alt="Hari Chandra Prasad">
-  <h1 id="typing-text"></h1>
-  <p>📍 Saint Louis, MO • ✉️ <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
-</header>
+  <!-- Cinematic Video Background -->
+  <video autoplay muted loop class="bg-video">
+    <source src="https://cdn.pixabay.com/vimeo/377749326/code-typing-26510.mp4?width=1920&hash=9b34039c8fcf5f1d81240f002ea9f9d9298799c3" type="video/mp4">
+  </video>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <!-- Hero Header -->
+  <header>
+    <h1>Harichandraprasad Sriram</h1>
+    <p>Full Stack Developer | Cloud Enthusiast | Creator</p>
+  </header>
 
-<section id="about" class="animate">
-  <h2>About Me</h2>
-  <p>I’m a passionate Java Full Stack Developer with 3+ years of experience building full-stack apps using Spring Boot, React, and modern cloud tools. I hold a Master’s from Saint Louis University and enjoy solving real-world problems through clean, scalable code.</p>
-</section>
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+    <a href="#resume">Resume</a>
+  </nav>
 
-<section id="experience" class="animate">
-  <h2>Experience</h2>
-  <ul>
-    <li><strong>TatvaSoft – Java Full Stack Developer</strong><br>Built REST APIs, integrated Angular frontends, deployed via GitHub Actions and AWS.</li>
-    <li><strong>DXC Technology – Software Engineer</strong><br>Created scalable backend solutions, worked with Docker, CI/CD, and Agile workflows.</li>
-  </ul>
-</section>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+     <img src="hari5-photo.jpg" alt="Hari" style="width: 300px; max-width: 100%; border-radius: 16px; box-shadow: 0 0 20px #000;" />
 
-<section id="projects" class="animate">
-  <h2>Projects</h2>
-  <ul class="projects">
-    <li>
-      <h3>Finance Tracker</h3>
-      <p>React + Spring Boot + JWT + Charts</p>
-      <a href="#">🔗 View on GitHub</a>
-    </li>
-    <li>
-      <h3>Portfolio Website</h3>
-      <p>This portfolio: particles, video, matrix rain, formspree</p>
-      <a href="#">🔗 View on GitHub</a>
-    </li>
-    <li>
-      <h3>E-commerce API</h3>
-      <p>Spring Boot, JWT, Swagger, MySQL</p>
-      <a href="#">🔗 View on GitHub</a>
-    </li>
-    <li>
-      <h3>CI/CD Pipeline</h3>
-      <p>Jenkins, Docker, Spring Boot Apps</p>
-      <a href="#">🔗 View on GitHub</a>
-    </li>
-  </ul>
-</section>
+      <p style="flex: 1;">
+        I'm Harichandraprasad Sriram, a Full Stack Developer with a Master's in Information Systems from Saint Louis University. <br><br>
+        Skilled in Java, Spring Boot, React, and AWS. I love building elegant solutions with performance and scalability in mind.
+      </p>
+    </div>
+  </section>
 
-<section id="skills" class="animate">
-  <h2>Skills</h2>
-  <ul>
-    <li><strong>Languages:</strong> Java, JavaScript, HTML, CSS</li>
-    <li><strong>Frameworks:</strong> Spring Boot, React, Angular</li>
-    <li><strong>Tools:</strong> Git, Docker, Jenkins, AWS, MongoDB, MySQL</li>
-  </ul>
-</section>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Smart Feedback System</h3>
+      <p>A secure platform for anonymous feedback with role-based access, built with Spring Boot and PostgreSQL.</p>
+    </div>
+    <div class="card">
+      <h3>eCommerce Platform</h3>
+      <p>Full-stack site with JWT auth, Stripe integration, React frontend and Java backend.</p>
+    </div>
+    </div>
+    
 
-<section id="certifications" class="animate">
-  <h2>Certifications</h2>
-  <ul>
-    <li
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="card">
+      <h3>AWS Certified Cloud Practitioner</h3>
+      <p>Solid understanding of AWS cloud, infrastructure, and services.</p>
+    </div>
+    <div class="card">
+      <h3>Java Full Stack Developer Certificate</h3>
+      <p>Expertise in Java, REST APIs, and cloud deployment.</p>
+    </div>
+    <div class="card">
+      <h3>AI For Everyone</h3>
+      <p>By Andrew Ng, Coursera. <a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 View</a></p>
+    </div>
+    <div class="card">
+      <h3>Python Core – SoloLearn</h3>
+      <p>Demonstrated solid theoretical understanding of core Python concepts.<br>
+        <a href="solo%20learn%20certificate.pdf" download>📄 Download Certificate</a></p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card contact">
+      <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a></p>
+      
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume">
+    <h2>Resume</h2>
+    <div class="card">
+      <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color: #fdd835; font-weight: bold;">📄 Download My Resume</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Harichandraprasad Sriram — All Rights Reserved
+  </footer>
+
+  <!-- JavaScript for Particles and Dark Mode -->
+  <script>
+    tsParticles.load("tsparticles", {
+      background: { color: { value: "#00000000" } },
+      particles: {
+        number: { value: 60 },
+        size: { value: 3 },
+        move: { enable: true, speed: 1 },
+        links: { enable: true, distance: 150, color: "#fdd835", opacity: 0.5 },
+        color: { value: "#fdd835" },
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+        },
+      }
+    });
+
+    const toggleTheme = () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    };
+
+    const toggleBtn = document.createElement('button');
+    toggleBtn.textContent = '🌓 Toggle Theme';
+    toggleBtn.style.position = 'fixed';
+    toggleBtn.style.bottom = '1rem';
+    toggleBtn.style.right = '1rem';
+    toggleBtn.style.padding = '0.5rem 1rem';
+    toggleBtn.style.backgroundColor = '#f44336';
+    toggleBtn.style.color = '#fff';
+    toggleBtn.style.border = 'none';
+    toggleBtn.style.borderRadius = '5px';
+    toggleBtn.style.cursor = 'pointer';
+    toggleBtn.onclick = toggleTheme;
+    document.body.appendChild(toggleBtn);
+  </script>
+</body>
+</html>
