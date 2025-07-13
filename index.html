@@ -3,18 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harichandraprasad Sriram | Developer Portfolio</title>
+  <title>Harichandraprasad Sriram | Full Stack Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
-      height: 100%;
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
       background: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #141414, #0d0d0d);
@@ -22,13 +19,11 @@
       animation: gradientBG 20s ease infinite;
       color: #fdd835;
     }
-
     @keyframes gradientBG {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
-
     #tsparticles {
       position: fixed;
       top: 0;
@@ -37,64 +32,53 @@
       width: 100%;
       height: 100%;
     }
-
     video.bg-video {
       position: fixed;
       top: 0;
       left: 0;
-      object-fit: cover;
       width: 100%;
       height: 100%;
+      object-fit: cover;
       z-index: -1;
       filter: brightness(0.2) blur(2px);
     }
-
     header {
       text-align: center;
       padding: 4rem 2rem;
       backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 2;
+      background: rgba(0,0,0,0.5);
       position: relative;
+      z-index: 2;
     }
-
     header h1 {
       font-size: 3rem;
-      color: #fdd835;
       animation: floatText 3s ease-in-out infinite;
       text-shadow: 0 0 10px #fdd835, 0 0 20px #fdd835, 0 0 30px #ff0;
     }
-
     @keyframes floatText {
-      0%, 100% { transform: translateY(0); }
+      0%,100% { transform: translateY(0); }
       50% { transform: translateY(-5px); }
     }
-
     #typed-text {
       font-size: 1.2rem;
       margin-top: 0.5rem;
       height: 1.5rem;
     }
-
     nav {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
       flex-wrap: wrap;
+      gap: 1.5rem;
       padding: 1rem;
       background: rgba(255, 255, 255, 0.05);
       border-bottom: 1px solid rgba(255,255,255,0.1);
       backdrop-filter: blur(10px);
-      z-index: 2;
-      position: relative;
     }
-
     nav a {
       color: #fdd835;
       text-decoration: none;
       font-weight: 600;
     }
-
     section {
       padding: 3rem 2rem;
       max-width: 1000px;
@@ -102,17 +86,15 @@
       position: relative;
       z-index: 2;
     }
-
     h2 {
       color: #fdd835;
       font-size: 2rem;
       margin-bottom: 1.5rem;
       text-shadow: 0 0 10px #fdd835, 0 0 20px #fdd835, 0 0 30px #ff0;
     }
-
     .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 16px;
       padding: 2rem;
       margin-bottom: 2rem;
@@ -120,60 +102,40 @@
       box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 15px #fdd835;
     }
-
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 1s ease-out, transform 1s ease-out;
     }
-
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
     footer {
       text-align: center;
       padding: 2rem;
       background: rgba(0,0,0,0.7);
       color: #fdd835;
-      backdrop-filter: blur(10px);
     }
-
     .contact a {
       color: #fdd835;
       text-decoration: none;
     }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      section { padding: 2rem 1rem; }
-      .card { padding: 1.5rem; }
-    }
   </style>
 </head>
 <body>
-
-  <!-- Particle Background -->
   <div id="tsparticles"></div>
-
-  <!-- Cinematic Video Background -->
   <video autoplay muted loop class="bg-video">
-    <source src="https://cdn.pixabay.com/vimeo/377749326/code-typing-26510.mp4?width=1920&hash=9b34039c8fcf5f1d81240f002ea9f9d9298799c3" type="video/mp4">
+    <source src="https://cdn.pixabay.com/vimeo/377749326/code-typing-26510.mp4" type="video/mp4">
   </video>
-
-  <!-- Hero Header -->
   <header>
     <h1>Harichandraprasad Sriram</h1>
     <p id="typed-text"></p>
   </header>
-
-  <!-- Navigation -->
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -181,20 +143,16 @@
     <a href="#contact">Contact</a>
     <a href="#resume">Resume</a>
   </nav>
-
-  <!-- About Section -->
   <section id="about" class="fade-in">
     <h2>About Me</h2>
     <div class="card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
       <img src="hari5-photo.jpg" alt="Hari" style="width: 300px; max-width: 100%; border-radius: 16px; box-shadow: 0 0 20px #000;" />
       <p style="flex: 1;">
-        I'm Harichandraprasad Sriram, a Full Stack Developer with a Master's in Information Systems from Saint Louis University. <br><br>
+        I'm Harichandraprasad Sriram, a Full Stack Developer with a Master's in Information Systems from Saint Louis University.<br><br>
         Skilled in Java, Spring Boot, React, and AWS. I love building elegant solutions with performance and scalability in mind.
       </p>
     </div>
   </section>
-
-  <!-- Projects -->
   <section id="projects" class="fade-in">
     <h2>Projects</h2>
     <div class="card">
@@ -206,8 +164,6 @@
       <p>Full-stack site with JWT auth, Stripe integration, React frontend and Java backend.</p>
     </div>
   </section>
-
-  <!-- Certifications -->
   <section id="certifications" class="fade-in">
     <h2>Certifications</h2>
     <div class="card">
@@ -220,16 +176,13 @@
     </div>
     <div class="card">
       <h3>AI For Everyone</h3>
-      <p>By Andrew Ng, Coursera. <a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 View</a></p>
+      <p><a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 View Certificate</a></p>
     </div>
     <div class="card">
       <h3>Python Core – SoloLearn</h3>
-      <p>Demonstrated solid theoretical understanding of core Python concepts.<br>
-        <a href="solo%20learn%20certificate.pdf" download>📄 Download Certificate</a></p>
+      <p><a href="solo%20learn%20certificate.pdf" download>📄 Download Certificate</a></p>
     </div>
   </section>
-
-  <!-- Contact -->
   <section id="contact" class="fade-in">
     <h2>Contact</h2>
     <div class="card contact">
@@ -237,23 +190,16 @@
       <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a></p>
     </div>
   </section>
-
-  <!-- Resume -->
   <section id="resume" class="fade-in">
     <h2>Resume</h2>
     <div class="card">
       <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color: #fdd835; font-weight: bold;">📄 Download My Resume</a>
     </div>
   </section>
-
-  <!-- Footer -->
   <footer>
     &copy; 2025 Harichandraprasad Sriram — All Rights Reserved
   </footer>
-
-  <!-- JavaScript for Particles, Typewriter, Theme, Scroll Anim -->
   <script>
-    // Typewriter Effect
     const texts = ["Full Stack Developer", "Cloud Enthusiast", "Creator"];
     let count = 0, index = 0, currentText = '', letter = '';
     (function type() {
@@ -269,8 +215,6 @@
         setTimeout(type, 100);
       }
     })();
-
-    // Particle.js
     tsParticles.load("tsparticles", {
       background: { color: { value: "#00000000" } },
       particles: {
@@ -286,8 +230,6 @@
         },
       }
     });
-
-    // Scroll Fade-in
     document.addEventListener("DOMContentLoaded", () => {
       const faders = document.querySelectorAll(".fade-in");
       const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -299,38 +241,6 @@
       }, { threshold: 0.2 });
       faders.forEach(fader => appearOnScroll.observe(fader));
     });
-
-    // Theme Toggle Button
-    const toggleTheme = () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
-    };
-
-    const toggleBtn = document.createElement('button');
-    toggleBtn.textContent = '🌓 Toggle Theme';
-    toggleBtn.style.position = 'fixed';
-    toggleBtn.style.bottom = '1rem';
-    toggleBtn.style.right = '1rem';
-    toggleBtn.style.padding = '0.5rem 1rem';
-    toggleBtn.style.backgroundColor = '#f44336';
-    toggleBtn.style.color = '#fff';
-    toggleBtn.style.border = 'none';
-    toggleBtn.style.borderRadius = '5px';
-    toggleBtn.style.cursor = 'pointer';
-    toggleBtn.style.animation = 'pulse 2s infinite';
-    toggleBtn.onclick = toggleTheme;
-    document.body.appendChild(toggleBtn);
-
-    // Pulse animation
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-      }
-    `;
-    document.head.appendChild(style);
   </script>
 </body>
 </html>
