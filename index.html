@@ -12,17 +12,8 @@
       margin: 0;
       line-height: 1.6;
       color: #fff;
-      background: linear-gradient(-45deg, #1f1c2c, #928dab, #1f1c2c);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      position: relative;
+      background: #000;
       overflow-x: hidden;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     #tsparticles, #matrixCanvas {
@@ -41,12 +32,24 @@
       pointer-events: none;
       z-index: -1;
       background-image: url('https://i.imgur.com/UYBdKfD.gif');
+      opacity: 0.2;
+    }
+
+    #hero-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -3;
       opacity: 0.3;
     }
 
     header {
       text-align: center;
-      padding: 60px 20px;
+      padding: 100px 20px 60px;
+      position: relative;
     }
 
     header img {
@@ -57,7 +60,12 @@
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     }
 
-    header h1 { margin: 15px 0 5px; }
+    header h1 {
+      margin: 15px 0 5px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
     header p { margin: 0; color: #ddd; }
 
     nav {
@@ -100,7 +108,11 @@
     ul { list-style: none; padding: 0; }
     li { margin: 15px 0; }
 
-    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
     footer {
       background: rgba(0, 0, 0, 0.3);
@@ -112,17 +124,66 @@
 
     a { color: #63dafb; }
     a:hover { text-decoration: underline; }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      resize: vertical;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #bbb;
+    }
+
+    button {
+      background: #63dafb;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #39c0e0;
+    }
+
+    .animate {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
+
+<video autoplay muted loop id="hero-video">
+  <source src="https://cdn.coverr.co/videos/coverr-typing-code-1054/1080p.mp4" type="video/mp4">
+</video>
 <div id="tsparticles"></div>
 <canvas id="matrixCanvas"></canvas>
 <div id="rain"></div>
 
 <header>
   <img src="hari5-photo.jpg" alt="Hari Chandra Prasad">
-  <h1>Harichandraprasad Sriram</h1>
-  <p>Java Full Stack Developer | Spring Boot • React • AWS • Docker</p>
+  <h1 id="typing-text"></h1>
   <p>📍 Saint Louis, MO • ✉️ <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
 </header>
 
@@ -135,107 +196,55 @@
   <a href="#contact">Contact</a>
 </nav>
 
-<section id="about">
+<section id="about" class="animate">
   <h2>About Me</h2>
-  <p>I’m a passionate Java Full Stack Developer with experience in developing scalable web applications using Spring Boot and React...</p>
+  <p>I’m a passionate Java Full Stack Developer with 3+ years of experience building full-stack apps using Spring Boot, React, and modern cloud tools. I hold a Master’s from Saint Louis University and enjoy solving real-world problems through clean, scalable code.</p>
 </section>
 
-<section id="experience">
+<section id="experience" class="animate">
   <h2>Experience</h2>
   <ul>
-    <li><strong>Java Full Stack Developer – TatvaSoft</strong> (2022 – 2023)...</li>
-    <li><strong>Software Engineer – DXC Technology</strong> (2020 – 2022)...</li>
+    <li><strong>TatvaSoft – Java Full Stack Developer</strong><br>Built REST APIs, integrated Angular frontends, deployed via GitHub Actions and AWS.</li>
+    <li><strong>DXC Technology – Software Engineer</strong><br>Created scalable backend solutions, worked with Docker, CI/CD, and Agile workflows.</li>
   </ul>
 </section>
 
-<section id="projects">
+<section id="projects" class="animate">
   <h2>Projects</h2>
   <ul class="projects">
-    <li><h3>Personal Finance Tracker</h3><p>Spring Boot + React + JWT...</p></li>
-    <li><h3>Developer Portfolio</h3><p>Modern design portfolio...</p></li>
+    <li>
+      <h3>Finance Tracker</h3>
+      <p>React + Spring Boot + JWT + Charts</p>
+      <a href="#">🔗 View on GitHub</a>
+    </li>
+    <li>
+      <h3>Portfolio Website</h3>
+      <p>This portfolio: particles, video, matrix rain, formspree</p>
+      <a href="#">🔗 View on GitHub</a>
+    </li>
+    <li>
+      <h3>E-commerce API</h3>
+      <p>Spring Boot, JWT, Swagger, MySQL</p>
+      <a href="#">🔗 View on GitHub</a>
+    </li>
+    <li>
+      <h3>CI/CD Pipeline</h3>
+      <p>Jenkins, Docker, Spring Boot Apps</p>
+      <a href="#">🔗 View on GitHub</a>
+    </li>
   </ul>
 </section>
 
-<section id="skills">
+<section id="skills" class="animate">
   <h2>Skills</h2>
   <ul>
-    <li>Java, Spring Boot, React, Angular...</li>
-    <li>Git, Docker, Jenkins, AWS...</li>
+    <li><strong>Languages:</strong> Java, JavaScript, HTML, CSS</li>
+    <li><strong>Frameworks:</strong> Spring Boot, React, Angular</li>
+    <li><strong>Tools:</strong> Git, Docker, Jenkins, AWS, MongoDB, MySQL</li>
   </ul>
 </section>
 
-<section id="certifications">
+<section id="certifications" class="animate">
   <h2>Certifications</h2>
   <ul>
-    <li><a href="Coursera 9MQW9MHN4P9Z.pdf" target="_blank">Coursera – Full Stack Web Development</a></li>
-    <li><a href="solo learn certificate.pdf" target="_blank">SoloLearn – Java Developer Certificate</a></li>
-  </ul>
-</section>
-
-<section id="contact">
-  <h2>Get in Touch</h2>
-  <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
-  <p><a href="Hari-Chandra-Prasad-Resume 3.pdf" download>📄 Download My Resume</a></p>
-  <p><a href="https://www.linkedin.com/in/hari-sriram-801777241/?trk=opento_sprofile_topcard" target="_blank">🔗 LinkedIn Profile</a></p>
-</section>
-
-<footer>
-  <p>© 2025 Harichandraprasad Sriram</p>
-</footer>
-
-<script>
-  tsParticles.load("tsparticles", {
-    background: { color: { value: "transparent" } },
-    fpsLimit: 60,
-    interactivity: {
-      events: {
-        onClick: { enable: true, mode: "push" },
-        onHover: { enable: true, mode: "repulse" },
-        resize: true
-      },
-      modes: {
-        push: { quantity: 4 },
-        repulse: { distance: 100, duration: 0.4 }
-      }
-    },
-    particles: {
-      color: { value: "#ffffff" },
-      links: { enable: true, color: "#ffffff", distance: 150, opacity: 0.5, width: 1 },
-      collisions: { enable: true },
-      move: { enable: true, speed: 2, direction: "none", random: false, straight: false, outModes: { default: "bounce" } },
-      number: { value: 60, density: { enable: true, area: 800 } },
-      opacity: { value: 0.5 },
-      shape: { type: "circle" },
-      size: { value: { min: 1, max: 5 } }
-    },
-    detectRetina: true
-  });
-
-  const canvas = document.getElementById("matrixCanvas");
-  const ctx = canvas.getContext("2d");
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-  const letters = "01";
-  const fontSize = 14;
-  const columns = canvas.width / fontSize;
-  const drops = Array.from({ length: columns }).fill(1);
-
-  function drawMatrix() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#0f0";
-    ctx.font = `${fontSize}px monospace`;
-
-    for (let i = 0; i < drops.length; i++) {
-      const text = letters[Math.floor(Math.random() * letters.length)];
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-      drops[i]++;
-    }
-  }
-
-  setInterval(drawMatrix, 33);
-</script>
-
-</body>
-</html>
+    <li
