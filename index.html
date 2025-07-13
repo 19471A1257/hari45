@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Harichandraprasad | Iron Man Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
@@ -13,20 +13,21 @@
     }
 
     :root {
-      --bg-light: #2e1a1a;
-      --text-light: #f1f1f1;
-      --bg-dark: #0b0c10;
-      --text-dark: #e0e0e0;
-      --accent: #b4001b;       /* Iron Man red */
-      --highlight: #ffd700;    /* Iron Man gold */
+      --bg-light: #f4f4f4;
+      --text-light: #1a202c;
+      --bg-dark: #0d0d0d;
+      --text-dark: #e2e8f0;
+      --iron-red: #8b0000;
+      --iron-gold: #daa520;
+      --iron-blue: #00ffff;
     }
 
-    html[data-theme="light"] {
+    html[data-theme='light'] {
       background: var(--bg-light);
       color: var(--text-light);
     }
 
-    html[data-theme="dark"] {
+    html[data-theme='dark'] {
       background: var(--bg-dark);
       color: var(--text-dark);
     }
@@ -34,13 +35,12 @@
     body {
       font-family: 'Poppins', sans-serif;
       transition: background 0.5s, color 0.5s;
-      background: linear-gradient(135deg, #0b0c10 0%, #1f1f1f 100%);
-      background-size: 400% 400%;
-      animation: pulseBackground 8s infinite alternate;
       overflow-x: hidden;
+      background: radial-gradient(circle at top left, #1c1c1c, #0d0d0d);
+      animation: glow 10s ease-in-out infinite alternate;
     }
 
-    @keyframes pulseBackground {
+    @keyframes glow {
       0% { background-position: 0% 50%; }
       100% { background-position: 100% 50%; }
     }
@@ -48,9 +48,9 @@
     header {
       padding: 4rem 2rem;
       text-align: center;
-      background: var(--accent);
-      color: var(--highlight);
-      box-shadow: 0 4px 6px rgba(255, 215, 0, 0.3);
+      background: var(--iron-red);
+      color: var(--iron-gold);
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
     }
 
     header h1 {
@@ -60,24 +60,23 @@
 
     header p {
       font-size: 1.2rem;
+      color: var(--iron-blue);
     }
 
     nav {
-      background: #ffffff20;
+      background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       padding: 1rem 2rem;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 1.5rem;
-      box-shadow: 0 2px 10px rgba(255, 215, 0, 0.1);
     }
 
     nav a {
-      color: var(--highlight);
+      color: var(--iron-gold);
       text-decoration: none;
       font-weight: 500;
-      font-size: 1rem;
     }
 
     section {
@@ -89,9 +88,9 @@
     h2 {
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
-      border-left: 4px solid var(--accent);
+      border-left: 4px solid var(--iron-gold);
       padding-left: 1rem;
-      color: var(--accent);
+      color: var(--iron-gold);
     }
 
     .card {
@@ -99,25 +98,123 @@
       padding: 2rem;
       border-radius: 8px;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.05);
-      backdrop-filter: blur(4px);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.05);
     }
 
     .card h3 {
-      color: var(--highlight);
+      color: var(--iron-blue);
     }
 
-    .contact a {
-      color: #38bdf8;
+    .card a {
+      color: var(--iron-gold);
       text-decoration: none;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      font-size: 0.9
+      font-size: 0.9rem;
+      background-color: #111;
+      color: var(--iron-gold);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Harichandraprasad Sriram</h1>
+    <p>Full Stack Developer | Cloud Enthusiast | Tech Avenger</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+    <a href="#resume">Resume</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I am Harichandraprasad Sriram, a passionate Full Stack Developer with a Master’s in Information Systems. I enjoy building scalable applications using Java, Spring Boot, React, and deploying them on the cloud using AWS. Like Tony Stark, I believe in innovation backed by code and courage.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Smart Feedback System</h3>
+      <p>Built with Spring Boot and PostgreSQL. A secure platform for anonymous feedback with role-based access and dashboards.</p>
+    </div>
+    <div class="card">
+      <h3>eCommerce Platform</h3>
+      <p>Developed a secure online shopping app using React frontend and Java backend. Integrated JWT, payments, and order tracking.</p>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="card">
+      <h3>AWS Certified Cloud Practitioner</h3>
+      <p>Understanding of AWS cloud fundamentals and infrastructure best practices.</p>
+    </div>
+    <div class="card">
+      <h3>Java Full Stack Developer Certificate</h3>
+      <p>Proficient in Spring Boot, Java APIs, and frontend development with React.</p>
+    </div>
+    <div class="card">
+      <h3>AI For Everyone - Coursera</h3>
+      <p>Completed with Andrew Ng on AI principles. <a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 Certificate</a></p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a></p>
+      <p>GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank">github.com/HarichandraprasadSri</a></p>
+    </div>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <div class="card">
+      <a href="Hari-Chandra-Prasad-Resume 3.pdf" download>📄 Download My Resume</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Harichandraprasad Sriram — Powered like Iron Man
+  </footer>
+
+  <script>
+    const toggleTheme = () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    };
+    const toggleBtn = document.createElement('button');
+    toggleBtn.textContent = '🌓 Toggle Theme';
+    toggleBtn.style.position = 'fixed';
+    toggleBtn.style.bottom = '1rem';
+    toggleBtn.style.right = '1rem';
+    toggleBtn.style.padding = '0.5rem 1rem';
+    toggleBtn.style.backgroundColor = '#daa520';
+    toggleBtn.style.color = '#000';
+    toggleBtn.style.border = 'none';
+    toggleBtn.style.borderRadius = '5px';
+    toggleBtn.style.cursor = 'pointer';
+    toggleBtn.onclick = toggleTheme;
+    document.body.appendChild(toggleBtn);
+  </script>
+</body>
+</html>
