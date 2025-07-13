@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Hari Chandra Prasad – Developer Portfolio</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; }
-    header { background: #f4f4f4; padding: 40px 20px; text-align:center; }
-    header img { border-radius: 50%; width:150px; height:150px; object-fit: cover; }
+    body { font-family: Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background: #fff; }
+    header { background: #f4f4f4; padding: 40px 20px; text-align: center; }
+    header img { border-radius: 50%; width: 150px; height: 150px; object-fit: cover; }
     header h1 { margin: 15px 0 5px; }
-    header p { margin:0; color:#555; }
+    header p { margin: 0; color: #555; }
 
-    nav { background:#222; color:#fff; padding:10px 0; text-align:center; }
-    nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight: bold; }
+    nav { background: #222; color: #fff; padding: 10px 0; text-align: center; }
+    nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
 
-    section { padding:40px 20px; max-width:900px; margin:auto; }
-    section h2 { border-bottom:2px solid #e0e0e0; padding-bottom:10px; }
+    section { padding: 40px 20px; max-width: 900px; margin: auto; }
+    section h2 { border-bottom: 2px solid #ddd; padding-bottom: 10px; }
 
-    .projects, .skills ul, .experience ul { list-style:none; padding:0; }
-    .projects li, .skills li, .experience li { margin:15px 0; }
+    .projects, .skills ul, .experience ul, .certifications ul { list-style: none; padding: 0; }
+    .projects li, .skills li, .experience li, .certifications li { margin: 15px 0; }
 
-    footer { background:#f4f4f4; text-align:center; padding:20px; margin-top:40px; }
-    @media(min-width:600px){
-      .projects { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .certifications a { color: #0077cc; }
+
+    footer { background: #f4f4f4; text-align: center; padding: 20px; margin-top: 40px; }
+
+    @media(min-width: 600px) {
+      .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     }
 
     a { color: #0077cc; }
@@ -44,12 +47,13 @@
   <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
   <a href="#skills">Skills</a>
+  <a href="#certifications">Certifications</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
   <h2>About Me</h2>
-  <p>I am a passionate Java Full Stack Developer with experience in building scalable applications using Spring Boot and React. I recently graduated from Saint Louis University with a Master’s in Information Systems and have worked on diverse projects involving REST APIs, JWT authentication, and CI/CD pipelines. I'm driven to solve real-world problems through clean, maintainable code.</p>
+  <p>I’m a passionate Java Full Stack Developer with experience in developing scalable web applications using Spring Boot and React. I hold a Master’s in Information Systems from Saint Louis University and have hands-on experience in building REST APIs, integrating CI/CD pipelines, and deploying cloud-native apps. I'm driven to build solutions that make a difference.</p>
 </section>
 
 <section id="experience">
@@ -57,15 +61,15 @@
   <ul>
     <li>
       <strong>Java Full Stack Developer – TatvaSoft</strong> (2022 – 2023)<br>
-      • Developed and maintained microservices using Spring Boot and MySQL.<br>
-      • Implemented front-end components using Angular and integrated REST APIs.<br>
-      • Participated in Agile ceremonies and used GitHub Actions for CI/CD.
+      • Built and optimized RESTful microservices using Spring Boot<br>
+      • Developed reusable Angular components and integrated backend APIs<br>
+      • Followed Agile methodology and CI/CD using GitHub Actions
     </li>
     <li>
       <strong>Software Engineer – DXC Technology</strong> (2020 – 2022)<br>
-      • Contributed to enterprise Java applications with focus on performance and testing.<br>
-      • Automated unit/integration testing and worked on Docker-based deployments.<br>
-      • Collaborated with cross-functional teams to ensure end-to-end delivery.
+      • Designed and tested Java-based backend modules with TDD practices<br>
+      • Created Docker images and deployed them to cloud environments<br>
+      • Ensured code quality through SonarQube and Jenkins pipelines
     </li>
   </ul>
 </section>
@@ -74,20 +78,20 @@
   <h2>Projects</h2>
   <ul class="projects">
     <li>
-      <h3><a href="#">Personal Finance Tracker</a></h3>
-      <p>Spring Boot + React-based app for tracking income, expenses, and budgets.</p>
+      <h3>Personal Finance Tracker</h3>
+      <p>A full-stack Spring Boot + React app to track daily expenses with charts, filters, and secure JWT login.</p>
     </li>
     <li>
-      <h3><a href="#">Portfolio Website</a></h3>
-      <p>Modern responsive portfolio built with HTML, CSS, JavaScript, and GitHub Pages.</p>
+      <h3>Developer Portfolio</h3>
+      <p>Responsive personal portfolio built using HTML, CSS, and JavaScript showcasing projects and resume.</p>
     </li>
     <li>
-      <h3><a href="#">E-commerce REST API</a></h3>
-      <p>Secure Spring Boot backend with JWT, Swagger, and MySQL integration.</p>
+      <h3>E-commerce REST API</h3>
+      <p>Secure REST API using Spring Boot with JWT authentication and Swagger documentation.</p>
     </li>
     <li>
-      <h3><a href="#">CI/CD Pipeline Setup</a></h3>
-      <p>Integrated Jenkins and Docker to automate testing and deployment for Java microservices.</p>
+      <h3>CI/CD DevOps Pipeline</h3>
+      <p>Implemented CI/CD using GitHub Actions and Docker for automated testing and containerized deployment.</p>
     </li>
   </ul>
 </section>
@@ -95,22 +99,20 @@
 <section id="skills">
   <h2>Skills</h2>
   <ul>
-    <li><strong>Languages & Frameworks:</strong> Java, Spring Boot, React, Angular, HTML, CSS, JavaScript</li>
+    <li><strong>Languages & Frameworks:</strong> Java, Spring Boot, React, Angular, JavaScript, HTML, CSS</li>
     <li><strong>Tools & Platforms:</strong> Git, GitHub Actions, Jenkins, Docker, AWS EC2/S3, MySQL, MongoDB</li>
-    <li><strong>Other:</strong> Agile Scrum, CI/CD, Test-Driven Development (TDD), REST APIs, JWT, OAuth2</li>
+    <li><strong>Practices:</strong> Agile Scrum, CI/CD, Unit Testing, REST APIs, JWT Authentication</li>
+  </ul>
+</section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+  <ul class="certifications">
+    <li>📄 <a href="Coursera 9MQW9MHN4P9Z.pdf" target="_blank">Coursera – Full Stack Web Development</a></li>
+    <li>📄 <a href="solo learn certificate.pdf" target="_blank">SoloLearn – Java Developer Certificate</a></li>
   </ul>
 </section>
 
 <section id="contact">
   <h2>Get in Touch</h2>
-  <p>I’m open to freelance, full-time, and collaborative project opportunities. Feel free to reach out!</p>
-  <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
-  <p>📄 <a href="Hari-Chandra-Prasad-Resume%203.pdf" download>Download My Resume</a></p>
-</section>
-
-<footer>
-  <p>© 2025 Harichandraprasad Sriram</p>
-</footer>
-
-</body>
-</html>
+  <p>I'm open to
