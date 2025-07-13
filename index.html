@@ -158,4 +158,22 @@
     function toggleTheme() {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      documen
+      document.documentElement.setAttribute('data-theme', newTheme);
+    }
+
+    // Animated headings
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".section-heading").forEach(el => {
+        const text = el.innerText;
+        el.innerHTML = "";
+        text.split("").forEach((char, i) => {
+          const span = document.createElement("span");
+          span.textContent = char;
+          span.style.animationDelay = `${i * 0.05}s`;
+          el.appendChild(span);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
