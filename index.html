@@ -16,8 +16,9 @@
     :root {
       --bg-light: #f5f7fa;
       --text-light: #1a202c;
-      --bg-dark: #1a1a2e;
+      --bg-dark: #0d1117;
       --text-dark: #e2e8f0;
+      --input-dark: #2c2f35;
       --accent: #2b6cb0;
       --accent-hover: #1c4c88;
       --button-shadow: rgba(0, 0, 0, 0.1);
@@ -29,6 +30,15 @@
       box-sizing: border-box;
     }
 
+    html {
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.5s, color 0.5s;
+    }
+
     body[data-theme="light"] {
       background: var(--bg-light);
       color: var(--text-light);
@@ -37,11 +47,6 @@
     body[data-theme="dark"] {
       background: var(--bg-dark);
       color: var(--text-dark);
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      transition: background 0.5s, color 0.5s;
     }
 
     header {
@@ -126,21 +131,48 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), inset 0 -2px 0 rgba(0,0,0,0.2);
     }
 
+    /* Toggle Switch */
     .theme-toggle {
       position: fixed;
       top: 1rem;
       right: 1rem;
+      width: 48px;
+      height: 24px;
       background: var(--accent);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
+      border-radius: 12px;
+      padding: 2px;
+      display: flex;
+      align-items: center;
       cursor: pointer;
-      font-weight: 600;
+      z-index: 1000;
+      transition: background 0.4s;
     }
 
-    .theme-toggle:hover {
-      background: var(--accent-hover);
+    .toggle-track {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .toggle-thumb {
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    [data-theme="dark"] .toggle-thumb {
+      transform: translateX(24px);
+      background: #fcd34d;
+    }
+
+    [data-theme="dark"] .theme-toggle {
+      background: #444;
     }
 
     form {
@@ -164,7 +196,7 @@
 
     body[data-theme="dark"] input,
     body[data-theme="dark"] textarea {
-      background: #2c2c3e;
+      background: var(--input-dark);
       color: white;
       border: 2px solid #444;
     }
@@ -192,13 +224,20 @@
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <!-- Theme Toggle Switch -->
+  <div class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+    <div class="toggle-track">
+      <div class="toggle-thumb" id="toggle-thumb"></div>
+    </div>
+  </div>
 
+  <!-- HEADER -->
   <header data-aos="fade-down">
     <h1>Hari Sriram</h1>
     <p>Java Full Stack Developer</p>
   </header>
 
+  <!-- NAV -->
   <nav data-aos="fade-up">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -206,6 +245,7 @@
     <a href="#contact">Contact</a>
   </nav>
 
+  <!-- CONTENT -->
   <div class="container">
     <h2 class="section-heading" id="about">About Me</h2>
     <p data-aos="fade-up">I am a passionate Java full-stack developer with experience in building web applications using Spring Boot, React, and modern development tools.</p>
@@ -230,17 +270,27 @@
     </form>
   </div>
 
-  <!-- AOS Scripts -->
+  <!-- AOS + Toggle Theme Script -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    const thumb = document.getElementById('toggle-thumb');
 
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', newTheme);
-    }
+    // Detect system preference or saved setting
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    root.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
 
+    toggle.addEventListener('click', () => {
+      const currentTheme = root.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+
+    // Animate Section Headings
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".section-heading").forEach(el => {
         const text = el.innerText;
