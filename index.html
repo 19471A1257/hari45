@@ -1,246 +1,116 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harichandraprasad Sriram | Full Stack Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hari Chandra Prasad – Developer Portfolio</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html {
-      scroll-behavior: smooth;
+    body { font-family: Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; }
+    header { background: #f4f4f4; padding: 40px 20px; text-align:center; }
+    header img { border-radius: 50%; width:150px; height:150px; object-fit: cover; }
+    header h1 { margin: 15px 0 5px; }
+    header p { margin:0; color:#555; }
+
+    nav { background:#222; color:#fff; padding:10px 0; text-align:center; }
+    nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+
+    section { padding:40px 20px; max-width:900px; margin:auto; }
+    section h2 { border-bottom:2px solid #e0e0e0; padding-bottom:10px; }
+
+    .projects, .skills ul, .experience ul { list-style:none; padding:0; }
+    .projects li, .skills li, .experience li { margin:15px 0; }
+
+    footer { background:#f4f4f4; text-align:center; padding:20px; margin-top:40px; }
+    @media(min-width:600px){
+      .projects { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
     }
-    body {
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-      background: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #141414, #0d0d0d);
-      background-size: 400% 400%;
-      animation: gradientBG 20s ease infinite;
-      color: #fdd835;
-    }
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-    #tsparticles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-    }
-    video.bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.2) blur(2px);
-    }
-    header {
-      text-align: center;
-      padding: 4rem 2rem;
-      backdrop-filter: blur(10px);
-      background: rgba(0,0,0,0.5);
-      position: relative;
-      z-index: 2;
-    }
-    header h1 {
-      font-size: 3rem;
-      animation: floatText 3s ease-in-out infinite;
-      text-shadow: 0 0 10px #fdd835, 0 0 20px #fdd835, 0 0 30px #ff0;
-    }
-    @keyframes floatText {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    #typed-text {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      height: 1.5rem;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-    }
-    nav a {
-      color: #fdd835;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-      position: relative;
-      z-index: 2;
-    }
-    h2 {
-      color: #fdd835;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 0 10px #fdd835, 0 0 20px #fdd835, 0 0 30px #ff0;
-    }
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 16px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px #fdd835;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(0,0,0,0.7);
-      color: #fdd835;
-    }
-    .contact a {
-      color: #fdd835;
-      text-decoration: none;
-    }
+
+    a { color: #0077cc; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div id="tsparticles"></div>
-  <video autoplay muted loop class="bg-video">
-    <source src="https://cdn.pixabay.com/vimeo/377749326/code-typing-26510.mp4" type="video/mp4">
-  </video>
-  <header>
-    <h1>Harichandraprasad Sriram</h1>
-    <p id="typed-text"></p>
-  </header>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
-    <a href="#resume">Resume</a>
-  </nav>
-  <section id="about" class="fade-in">
-    <h2>About Me</h2>
-    <div class="card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
-      <img src="hari5-photo.jpg" alt="Hari" style="width: 300px; max-width: 100%; border-radius: 16px; box-shadow: 0 0 20px #000;" />
-      <p style="flex: 1;">
-        I'm Harichandraprasad Sriram, a Full Stack Developer with a Master's in Information Systems from Saint Louis University.<br><br>
-        Skilled in Java, Spring Boot, React, and AWS. I love building elegant solutions with performance and scalability in mind.
-      </p>
-    </div>
-  </section>
-  <section id="projects" class="fade-in">
-    <h2>Projects</h2>
-    <div class="card">
-      <h3>Smart Feedback System</h3>
-      <p>A secure platform for anonymous feedback with role-based access, built with Spring Boot and PostgreSQL.</p>
-    </div>
-    <div class="card">
-      <h3>eCommerce Platform</h3>
-      <p>Full-stack site with JWT auth, Stripe integration, React frontend and Java backend.</p>
-    </div>
-  </section>
-  <section id="certifications" class="fade-in">
-    <h2>Certifications</h2>
-    <div class="card">
-      <h3>AWS Certified Cloud Practitioner</h3>
-      <p>Solid understanding of AWS cloud, infrastructure, and services.</p>
-    </div>
-    <div class="card">
-      <h3>Java Full Stack Developer Certificate</h3>
-      <p>Expertise in Java, REST APIs, and cloud deployment.</p>
-    </div>
-    <div class="card">
-      <h3>AI For Everyone</h3>
-      <p><a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 View Certificate</a></p>
-    </div>
-    <div class="card">
-      <h3>Python Core – SoloLearn</h3>
-      <p><a href="solo%20learn%20certificate.pdf" download>📄 Download Certificate</a></p>
-    </div>
-  </section>
-  <section id="contact" class="fade-in">
-    <h2>Contact</h2>
-    <div class="card contact">
-      <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a></p>
-    </div>
-  </section>
-  <section id="resume" class="fade-in">
-    <h2>Resume</h2>
-    <div class="card">
-      <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color: #fdd835; font-weight: bold;">📄 Download My Resume</a>
-    </div>
-  </section>
-  <footer>
-    &copy; 2025 Harichandraprasad Sriram — All Rights Reserved
-  </footer>
-  <script>
-    const texts = ["Full Stack Developer", "Cloud Enthusiast", "Creator"];
-    let count = 0, index = 0, currentText = '', letter = '';
-    (function type() {
-      if (count === texts.length) count = 0;
-      currentText = texts[count];
-      letter = currentText.slice(0, ++index);
-      document.getElementById('typed-text').textContent = letter;
-      if (letter.length === currentText.length) {
-        count++;
-        index = 0;
-        setTimeout(type, 1500);
-      } else {
-        setTimeout(type, 100);
-      }
-    })();
-    tsParticles.load("tsparticles", {
-      background: { color: { value: "#00000000" } },
-      particles: {
-        number: { value: 60 },
-        size: { value: 3 },
-        move: { enable: true, speed: 1 },
-        links: { enable: true, distance: 150, color: "#fdd835", opacity: 0.5 },
-        color: { value: "#fdd835" },
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-        },
-      }
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-      const faders = document.querySelectorAll(".fade-in");
-      const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        });
-      }, { threshold: 0.2 });
-      faders.forEach(fader => appearOnScroll.observe(fader));
-    });
-  </script>
+
+<header>
+  <img src="hari5-photo.jpg" alt="Hari Chandra Prasad">
+  <h1>Harichandraprasad Sriram</h1>
+  <p>Java Full Stack Developer | Spring Boot • React • AWS • Docker</p>
+  <p>📍 Saint Louis, MO • ✉️ <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I am a passionate Java Full Stack Developer with experience in building scalable applications using Spring Boot and React. I recently graduated from Saint Louis University with a Master’s in Information Systems and have worked on diverse projects involving REST APIs, JWT authentication, and CI/CD pipelines. I'm driven to solve real-world problems through clean, maintainable code.</p>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <ul>
+    <li>
+      <strong>Java Full Stack Developer – TatvaSoft</strong> (2022 – 2023)<br>
+      • Developed and maintained microservices using Spring Boot and MySQL.<br>
+      • Implemented front-end components using Angular and integrated REST APIs.<br>
+      • Participated in Agile ceremonies and used GitHub Actions for CI/CD.
+    </li>
+    <li>
+      <strong>Software Engineer – DXC Technology</strong> (2020 – 2022)<br>
+      • Contributed to enterprise Java applications with focus on performance and testing.<br>
+      • Automated unit/integration testing and worked on Docker-based deployments.<br>
+      • Collaborated with cross-functional teams to ensure end-to-end delivery.
+    </li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <ul class="projects">
+    <li>
+      <h3><a href="#">Personal Finance Tracker</a></h3>
+      <p>Spring Boot + React-based app for tracking income, expenses, and budgets.</p>
+    </li>
+    <li>
+      <h3><a href="#">Portfolio Website</a></h3>
+      <p>Modern responsive portfolio built with HTML, CSS, JavaScript, and GitHub Pages.</p>
+    </li>
+    <li>
+      <h3><a href="#">E-commerce REST API</a></h3>
+      <p>Secure Spring Boot backend with JWT, Swagger, and MySQL integration.</p>
+    </li>
+    <li>
+      <h3><a href="#">CI/CD Pipeline Setup</a></h3>
+      <p>Integrated Jenkins and Docker to automate testing and deployment for Java microservices.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li><strong>Languages & Frameworks:</strong> Java, Spring Boot, React, Angular, HTML, CSS, JavaScript</li>
+    <li><strong>Tools & Platforms:</strong> Git, GitHub Actions, Jenkins, Docker, AWS EC2/S3, MySQL, MongoDB</li>
+    <li><strong>Other:</strong> Agile Scrum, CI/CD, Test-Driven Development (TDD), REST APIs, JWT, OAuth2</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Get in Touch</h2>
+  <p>I’m open to freelance, full-time, and collaborative project opportunities. Feel free to reach out!</p>
+  <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
+  <p>📄 <a href="Hari-Chandra-Prasad-Resume%203.pdf" download>Download My Resume</a></p>
+</section>
+
+<footer>
+  <p>© 2025 Harichandraprasad Sriram</p>
+</footer>
+
 </body>
 </html>
