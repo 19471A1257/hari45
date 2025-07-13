@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hari Sriram | Developer Portfolio</title>
+  <title>Harichandraprasad | Iron Man Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -13,38 +13,44 @@
     }
 
     :root {
-  --bg-light: #fff5f5;     /* Arc Reactor soft glow */
-  --text-light: #7b1e1e;   /* Stark deep red */
-  --bg-dark: #1c1c1c;      /* Iron Man armor black */
-  --text-dark: #fdd835;    /* Arc Reactor gold accent */
-  --accent: #c62828;       /* Iron Man red */
-}
-
-
+      --bg-light: #2e1a1a;
+      --text-light: #f1f1f1;
+      --bg-dark: #0b0c10;
+      --text-dark: #e0e0e0;
+      --accent: #b4001b;       /* Iron Man red */
+      --highlight: #ffd700;    /* Iron Man gold */
+    }
 
     html[data-theme="light"] {
-      background-color: var(--bg-light);
+      background: var(--bg-light);
       color: var(--text-light);
     }
 
     html[data-theme="dark"] {
-      background-color: var(--bg-dark);
+      background: var(--bg-dark);
       color: var(--text-dark);
     }
 
     body {
       font-family: 'Poppins', sans-serif;
       transition: background 0.5s, color 0.5s;
+      background: linear-gradient(135deg, #0b0c10 0%, #1f1f1f 100%);
+      background-size: 400% 400%;
+      animation: pulseBackground 8s infinite alternate;
       overflow-x: hidden;
-      word-wrap: break-word;
+    }
+
+    @keyframes pulseBackground {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     header {
       padding: 4rem 2rem;
       text-align: center;
       background: var(--accent);
-      color: white;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      color: var(--highlight);
+      box-shadow: 0 4px 6px rgba(255, 215, 0, 0.3);
     }
 
     header h1 {
@@ -64,11 +70,11 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 1.5rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 10px rgba(255, 215, 0, 0.1);
     }
 
     nav a {
-      color: var(--accent);
+      color: var(--highlight);
       text-decoration: none;
       font-weight: 500;
       font-size: 1rem;
@@ -89,166 +95,29 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
       padding: 2rem;
       border-radius: 8px;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.05);
       backdrop-filter: blur(4px);
-      width: 100%;
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      transition: transform 0.3s ease;
     }
 
     .card h3 {
-      color: #0077cc;
+      color: var(--highlight);
     }
 
     .contact a {
-      color: #0077cc;
+      color: #38bdf8;
       text-decoration: none;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      font-size: 0.9rem;
-      background-color: var(--accent);
-      color: white;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-      }
-
-      section {
-        padding: 2rem 1rem;
-      }
-
-      .card {
-        padding: 1.5rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Harichandraprasad Sriram</h1>
-    <p>Full Stack Developer | Cloud Enthusiast | Creator</p>
-  </header>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
-    <a href="#resume">Resume</a>
-  </nav>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-      <p>
-        I’m Harichandraprasad Sriram, a passionate Full Stack Developer with a Master's in Information Systems from Saint Louis University.
-        I specialize in building robust web applications using Java, Spring Boot, React, and cloud-native tools like AWS and Docker.
-        <br /><br />
-        I enjoy transforming ideas into scalable, high-performance solutions. Whether it's integrating CI/CD pipelines, deploying services to the cloud,
-        or designing user-friendly interfaces, I approach every challenge with curiosity and precision.
-      </p>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card">
-      <h3>Smart Feedback System</h3>
-      <p>A secure platform for collecting anonymous feedback with role-based access and analytics. Built with Spring Boot and PostgreSQL.</p>
-    </div>
-    <div class="card">
-      <h3>eCommerce Platform</h3>
-      <p>Full-stack shopping site with JWT authentication, payment gateway integration, and order history using React and Java backend.</p>
-    </div>
-  </section>
-
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="card">
-      <h3>AWS Certified Cloud Practitioner</h3>
-      <p>Validated knowledge of AWS Cloud, global infrastructure, services, and security best practices.</p>
-    </div>
-    <div class="card">
-      <h3>Java Full Stack Developer Certificate</h3>
-      <p>Completed intensive training in Java, Spring Boot, React, REST APIs, and cloud deployment.</p>
-    </div>
-    <div class="card">
-      <h3>Agile with Atlassian Jira</h3>
-      <p>Hands-on course on managing Agile teams and workflows using Jira and Scrum methodologies.</p>
-    </div>
-    <div class="card">
-      <h3>AI For Everyone - Coursera</h3>
-      <p>
-        Completed the non-credit course authorized by DeepLearning.AI, taught by Andrew Ng.<br />
-        <a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 View Certificate</a>
-      </p>
-    </div>
-    <div class="card">
-      <h3>Python Core - SoloLearn</h3>
-      <p>
-        Demonstrated solid theoretical understanding of core Python concepts.<br />
-        <a href="solo learn certificate.pdf" download>📄 Download Certificate</a>
-      </p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card contact">
-      <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram-801777241</a></p>
-      <p>GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank">github.com/HarichandraprasadSri</a></p>
-    </div>
-  </section>
-
-  <section id="resume">
-    <h2>Resume</h2>
-    <div class="card">
-      <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color: #0077cc; font-weight: bold;">📄 Download My Resume</a>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Harichandraprasad Sriram — All Rights Reserved
-  </footer>
-
-  <script>
-    const toggleTheme = () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
-    };
-
-    const toggleBtn = document.createElement('button');
-    toggleBtn.textContent = '🌓 Toggle Theme';
-    toggleBtn.style.position = 'fixed';
-    toggleBtn.style.bottom = '1rem';
-    toggleBtn.style.right = '1rem';
-    toggleBtn.style.padding = '0.5rem 1rem';
-    toggleBtn.style.backgroundColor = '#0077cc';
-    toggleBtn.style.color = '#fff';
-    toggleBtn.style.border = 'none';
-    toggleBtn.style.borderRadius = '5px';
-    toggleBtn.style.cursor = 'pointer';
-    toggleBtn.onclick = toggleTheme;
-    document.body.appendChild(toggleBtn);
-  </script>
-</body>
-</html>
+      font-size: 0.9
