@@ -1,46 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harichandraprasad Sriram | Developer Portfolio</title>
+  <title>Harichandraprasad Sriram | Avengers Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-   
-  /* existing styles ... */
-
-  @keyframes slideInLeft {
-    0% {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideInRight {
-    0% {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .animate-left {
-    animation: slideInLeft 1s ease-out;
-  }
-
-  .animate-right {
-    animation: slideInRight 1s ease-out;
-  }
-
-
-    
     * {
       margin: 0;
       padding: 0;
@@ -48,14 +13,21 @@
     }
 
     :root {
-      --bg-dark: #1a1a1a;
-      --text-dark: #fdd835;
-      --accent: #b71c1c;
-      --card-bg: #2a2a2a;
+      --bg-light: #0a0f2c;
+      --text-light: #e2e8f0;
+      --bg-dark: #0a0f2c;
+      --text-dark: #fcd34d;
+      --accent: #e11d48;
+      --card-bg: #111827;
+    }
+
+    html[data-theme="light"] {
+      background: radial-gradient(circle at top, #0a0f2c, #1f2937);
+      color: var(--text-light);
     }
 
     html[data-theme="dark"] {
-      background: var(--bg-dark);
+      background: radial-gradient(circle at bottom, #1f2937, #0a0f2c);
       color: var(--text-dark);
     }
 
@@ -66,103 +38,110 @@
     }
 
     header {
-      padding: 4rem 2rem;
       text-align: center;
-      background: var(--accent);
-      color: #fff;
-      text-shadow: 0 0 5px #fdd835, 0 0 15px #b71c1c;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-    }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 5px #fdd835, 0 0 10px #b71c1c;
-      }
-      to {
-        text-shadow: 0 0 15px #fdd835, 0 0 25px #f44336;
-      }
+      padding: 4rem 2rem;
+      background-color: var(--card-bg);
+      color: var(--accent);
+      box-shadow: 0 0 10px #e11d48;
     }
 
     nav {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
       display: flex;
       justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background-color: #1f2937dd;
+      backdrop-filter: blur(10px);
       flex-wrap: wrap;
-      gap: 1.5rem;
-      animation: slideDown 1s ease-in-out;
-    }
-
-    @keyframes slideDown {
-      0% {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0%);
-        opacity: 1;
-      }
     }
 
     nav a {
-      color: #fdd835;
+      color: var(--text-light);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
+      font-weight: 600;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      text-shadow: 0 0 5px var(--accent);
     }
 
     section {
       padding: 4rem 2rem;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     h2 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       margin-bottom: 1.5rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 1rem;
       color: var(--accent);
+      border-left: 5px solid var(--accent);
+      padding-left: 1rem;
     }
 
     .card {
-      background: var(--card-bg);
+      background-color: var(--card-bg);
+      color: var(--text-light);
       padding: 2rem;
-      border-radius: 8px;
       margin-bottom: 2rem;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 15px #fdd835;
     }
 
-    .card h3 {
-      color: #f44336;
+    .animate-left {
+      animation: slideInLeft 1s ease-out;
+    }
+
+    .animate-right {
+      animation: slideInRight 1s ease-out;
+    }
+
+    @keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
     }
 
     .contact a {
-      color: #fdd835;
+      color: #fcd34d;
       text-decoration: none;
     }
 
@@ -170,35 +149,38 @@
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      background-color: #0d0d0d;
-      color: #fdd835;
+      background-color: #111827;
+      color: #e2e8f0;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+    /* Toggle button */
+    .toggle-btn {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 999;
+    }
 
-      nav {
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-container {
         flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-      }
-
-      section {
-        padding: 2rem 1rem;
-      }
-
-      .card {
-        padding: 1.5rem;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Harichandraprasad Sriram</h1>
-    <p>Full Stack Developer | Cloud Enthusiast | Creator</p>
+    <p>Full Stack Developer | Avengers Tech Enthusiast</p>
   </header>
 
   <nav>
@@ -209,33 +191,27 @@
     <a href="#resume">Resume</a>
   </nav>
 
- <section id="about">
-  <h2>About Me</h2>
-  <div class="card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
-    <img src="hari5-photo.jpg" alt="Harichandraprasad Sriram"
-         class="animate-left"
-         style="width: 200px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" />
-    <p class="animate-right" style="flex: 1;">
-      I’m Harichandraprasad Sriram, a passionate Full Stack Developer with a Master's in Information Systems from Saint Louis University.
-      I specialize in building robust web applications using Java, Spring Boot, React, and cloud-native tools like AWS and Docker.<br /><br />
-      I enjoy transforming ideas into scalable, high-performance solutions. Whether it's integrating CI/CD pipelines, deploying services to the cloud,
-      or designing user-friendly interfaces, I approach every challenge with curiosity and precision.
-    </p>
-  </div>
-</section>
-
-
-
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card about-container animate-left">
+      <img src="hari5-photo.jpg" alt="Hari's photo" class="avatar" />
+      <p class="animate-right">
+        I’m Harichandraprasad Sriram, a passionate Full Stack Developer with a Master's in Information Systems from Saint Louis University.
+        I specialize in building robust web apps using Java, Spring Boot, React, and cloud-native tools like AWS and Docker.
+        I enjoy transforming ideas into scalable, high-performance solutions with a touch of superhero energy!
+      </p>
+    </div>
+  </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <div class="card">
       <h3>Smart Feedback System</h3>
-      <p>A secure platform for collecting anonymous feedback with role-based access and analytics. Built with Spring Boot and PostgreSQL.</p>
+      <p>A secure platform for anonymous feedback with role-based access and analytics. Built with Spring Boot and PostgreSQL.</p>
     </div>
     <div class="card">
       <h3>eCommerce Platform</h3>
-      <p>Full-stack shopping site with JWT authentication, payment gateway integration, and order history using React and Java backend.</p>
+      <p>Full-stack shopping app with JWT authentication, payment gateway integration, and order history using React and Java backend.</p>
     </div>
   </section>
 
@@ -243,21 +219,22 @@
     <h2>Certifications</h2>
     <div class="card">
       <h3>AWS Certified Cloud Practitioner</h3>
-      <p>Validated knowledge of AWS Cloud, global infrastructure, services, and security best practices.</p>
+      <p>Validated knowledge of AWS Cloud, services, and best practices.</p>
     </div>
     <div class="card">
-      <h3>Java Full Stack Developer Certificate</h3>
-      <p>Completed intensive training in Java, Spring Boot, React, REST APIs, and cloud deployment.</p>
+      <h3>Java Full Stack Developer</h3>
+      <p>Trained in Java, Spring Boot, React, REST APIs, and cloud deployment.</p>
     </div>
     <div class="card">
-      <h3>AI For Everyone – Coursera</h3>
-      <p>Completed the non-credit course authorized by DeepLearning.AI, taught by Andrew Ng.<br>
-        <a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 View Certificate</a></p>
+      <h3>AI for Everyone - Coursera</h3>
+      <p>
+        Authorized by DeepLearning.AI, taught by Andrew Ng.
+        <br><a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 View Certificate</a>
+      </p>
     </div>
     <div class="card">
-      <h3>Python Core – SoloLearn</h3>
-      <p>Demonstrated solid theoretical understanding of core Python concepts.<br>
-        <a href="solo%20learn%20certificate.pdf" download>📄 Download Certificate</a></p>
+      <h3>Python Core - SoloLearn</h3>
+      <p><a href="solo%20learn%20certificate.pdf" download>📄 Download Certificate</a></p>
     </div>
   </section>
 
@@ -273,48 +250,22 @@
   <section id="resume">
     <h2>Resume</h2>
     <div class="card">
-      <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color: #fdd835; font-weight: bold;">📄 Download My Resume</a>
+      <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color: #fcd34d; font-weight: bold;">📄 Download My Resume</a>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Harichandraprasad Sriram — All Rights Reserved
+    &copy; 2025 Harichandraprasad Sriram — Avengers Initiative
   </footer>
 
+  <button class="toggle-btn" onclick="toggleTheme()">🌓 Toggle Theme</button>
+
   <script>
-    // Dark/light toggle
-    const toggleTheme = () => {
+    function toggleTheme() {
       const current = document.documentElement.getAttribute('data-theme');
       document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
-    };
-
-    const toggleBtn = document.createElement('button');
-    toggleBtn.textContent = '🌓 Toggle Theme';
-    toggleBtn.style.position = 'fixed';
-    toggleBtn.style.bottom = '1rem';
-    toggleBtn.style.right = '1rem';
-    toggleBtn.style.padding = '0.5rem 1rem';
-    toggleBtn.style.backgroundColor = '#f44336';
-    toggleBtn.style.color = '#fff';
-    toggleBtn.style.border = 'none';
-    toggleBtn.style.borderRadius = '5px';
-    toggleBtn.style.cursor = 'pointer';
-    toggleBtn.onclick = toggleTheme;
-    document.body.appendChild(toggleBtn);
-
-    // Reveal sections on scroll
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    }
   </script>
+
 </body>
 </html>
