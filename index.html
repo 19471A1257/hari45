@@ -3,33 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harichandraprasad Sriram | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+  <title>Hari Sriram | Web-Slinger Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
   <style>
     :root {
-      --bg-light: #f5f7fa;
-      --text-light: #1a202c;
-      --bg-dark: #0f172a;
-      --text-dark: #e2e8f0;
-      --accent: #2563eb;
+      --red: #e23636;
+      --blue: #1e3a8a;
+      --dark: #0c0c0c;
+      --glass: rgba(255, 255, 255, 0.1);
+      --text-light: #f3f4f6;
+      --text-dark: #1a202c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     html[data-theme="light"] {
-      background: var(--bg-light);
-      color: var(--text-light);
+      background-color: #ffffff;
+      color: var(--text-dark);
     }
 
     html[data-theme="dark"] {
-      background: var(--bg-dark);
-      color: var(--text-dark);
+      background-color: var(--dark);
+      color: var(--text-light);
     }
 
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      transition: background 0.4s, color 0.4s;
+      position: relative;
+      min-height: 100vh;
+      transition: background 0.5s, color 0.5s;
     }
 
     #tsparticles {
@@ -42,59 +49,59 @@
     header {
       text-align: center;
       padding: 4rem 2rem;
-      background: var(--accent);
+      background: var(--red);
       color: white;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     header h1 {
-      font-size: 2.5rem;
-      margin: 0.2rem 0;
+      font-size: 3rem;
     }
 
     header p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     nav {
+      background: var(--blue);
+      color: white;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
       flex-wrap: wrap;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+      gap: 1.2rem;
       padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1;
     }
 
     nav a {
-      color: var(--accent);
+      color: white;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bold;
+      font-size: 1rem;
     }
 
     section {
+      padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
-      padding: 4rem 2rem;
     }
 
     h2 {
-      color: var(--accent);
-      border-left: 4px solid var(--accent);
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--red);
+      border-left: 4px solid var(--blue);
       padding-left: 1rem;
-      font-size: 1.8rem;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--glass);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       padding: 2rem;
-      margin: 1.5rem 0;
       border-radius: 12px;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
       transition: transform 0.3s ease;
     }
 
@@ -102,153 +109,184 @@
       transform: translateY(-5px);
     }
 
-    .card h3 {
-      color: var(--accent);
+    .photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-left: 2rem;
+      float: right;
+      box-shadow: 0 0 15px var(--blue);
     }
 
-    .contact a {
-      color: var(--accent);
-      text-decoration: none;
+    @media (max-width: 768px) {
+      .photo {
+        float: none;
+        display: block;
+        margin: 1rem auto;
+      }
+
+      .card {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      background: #1a202c;
-      color: #cbd5e0;
+      font-size: 0.9rem;
+      background: var(--blue);
+      color: white;
     }
 
-    img.photo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 10px var(--accent);
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
+    .contact a {
+      color: var(--blue);
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
+  <div id="tsparticles"></div>
 
-<div id="tsparticles"></div>
+  <header>
+    <h1>Harichandraprasad Sriram</h1>
+    <p>🕷️ Full Stack Developer | Java Enthusiast | Cloud Explorer</p>
+  </header>
 
-<header>
-  <img src="hari5-photo.jpg" alt="Profile" class="photo" />
-  <h1>Harichandraprasad Sriram</h1>
-  <p>Full Stack Developer | Cloud Enthusiast | Creator</p>
-</header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+    <a href="#resume">Resume</a>
+  </nav>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#contact">Contact</a>
-  <a href="#resume">Resume</a>
-</nav>
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="card" style="display: flex; flex-wrap: wrap; align-items: center;">
+      <img src="hari5-photo.jpg" alt="Hari Photo" class="photo" />
+      <p style="flex: 1;">
+        I’m Harichandraprasad Sriram, a passionate Full Stack Developer with a Master's in Information Systems from Saint Louis University.
+        Skilled in Java, Spring Boot, React, and AWS. Inspired by superheroes and driven to build heroic software.
+      </p>
+    </div>
+  </section>
 
-<section id="about">
-  <h2>About Me</h2>
-  <div class="card">
-    <p>I’m Harichandraprasad Sriram, a passionate Full Stack Developer with a Master's in Information Systems from Saint Louis University. I specialize in building robust web applications using Java, Spring Boot, React, and cloud-native tools like AWS and Docker.</p>
-    <p>I enjoy transforming ideas into scalable, high-performance solutions and bring a modern touch with UI/UX awareness and DevOps practices.</p>
-  </div>
-</section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Smart Feedback System</h3>
+      <p>Secure platform for anonymous feedback with role-based dashboards. Built using Spring Boot and PostgreSQL.</p>
+    </div>
+    <div class="card">
+      <h3>eCommerce Platform</h3>
+      <p>React + Java-powered shop with JWT authentication, payment gateway integration, and admin controls.</p>
+    </div>
+  </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="card">
-    <h3>Smart Feedback System</h3>
-    <p>Role-based anonymous feedback platform built with Spring Boot & PostgreSQL.</p>
-  </div>
-  <div class="card">
-    <h3>eCommerce Platform</h3>
-    <p>JWT-authenticated shopping app with order history, payment gateway, React frontend, and Java backend.</p>
-  </div>
-</section>
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="card">
+      <h3>AWS Certified Cloud Practitioner</h3>
+      <p>Solid understanding of AWS global cloud infrastructure, services, and security.</p>
+    </div>
+    <div class="card">
+      <h3>Java Full Stack Developer Certificate</h3>
+      <p>Hands-on experience with Spring Boot, REST APIs, React, and DevOps tools.</p>
+    </div>
+    <div class="card">
+      <h3>Python Core - SoloLearn</h3>
+      <p>Demonstrated theoretical Python knowledge.
+        <a href="solo%20learn%20certificate.pdf" download>📄 View Certificate</a>
+      </p>
+    </div>
+  </section>
 
-<section id="certifications">
-  <h2>Certifications</h2>
-  <div class="card">
-    <h3>AWS Certified Cloud Practitioner</h3>
-    <p>Foundational cloud certification validating AWS core services and security.</p>
-  </div>
-  <div class="card">
-    <h3>Java Full Stack Developer</h3>
-    <p>Completed full stack training in Java, Spring Boot, REST, React, and CI/CD.</p>
-  </div>
-  <div class="card">
-    <h3>AI for Everyone – Coursera</h3>
-    <p>Andrew Ng's course on AI impact and fundamentals. <a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">View Certificate</a></p>
-  </div>
-  <div class="card">
-    <h3>Python Core – SoloLearn</h3>
-    <p>Strong understanding of Python basics. <a href="solo%20learn%20certificate.pdf" download>Download Certificate</a></p>
-  </div>
-</section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card contact">
+      <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a></p>
+      <p>GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank">github.com/HarichandraprasadSri</a></p>
+    </div>
+  </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="card contact">
-    <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram-801777241</a></p>
-    <p>GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank">github.com/HarichandraprasadSri</a></p>
-  </div>
-</section>
+  <section id="resume">
+    <h2>Resume</h2>
+    <div class="card">
+      <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color:var(--blue); font-weight:bold;">📄 Download My Resume</a>
+    </div>
+  </section>
 
-<section id="resume">
-  <h2>Resume</h2>
-  <div class="card">
-    <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color:#38bdf8; font-weight:bold;">📄 Download My Resume</a>
-  </div>
-</section>
+  <footer>
+    &copy; 2025 Harichandraprasad Sriram — All Rights Reserved 🕷️
+  </footer>
 
-<footer>
-  &copy; 2025 Harichandraprasad Sriram — All Rights Reserved
-</footer>
+  <script>
+    // Toggle Theme
+    const toggleTheme = () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    };
+    const toggleBtn = document.createElement('button');
+    toggleBtn.textContent = '🌓 Toggle Theme';
+    toggleBtn.style.position = 'fixed';
+    toggleBtn.style.bottom = '1rem';
+    toggleBtn.style.right = '1rem';
+    toggleBtn.style.padding = '0.5rem 1rem';
+    toggleBtn.style.backgroundColor = '#e23636';
+    toggleBtn.style.color = '#fff';
+    toggleBtn.style.border = 'none';
+    toggleBtn.style.borderRadius = '5px';
+    toggleBtn.style.cursor = 'pointer';
+    toggleBtn.onclick = toggleTheme;
+    document.body.appendChild(toggleBtn);
 
-<script>
-  const toggleTheme = () => {
-    const current = document.documentElement.getAttribute('data-theme');
-    document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
-  };
-  const btn = document.createElement('button');
-  btn.textContent = '🌓 Toggle Theme';
-  btn.style.position = 'fixed';
-  btn.style.bottom = '1rem';
-  btn.style.right = '1rem';
-  btn.style.padding = '0.5rem 1rem';
-  btn.style.backgroundColor = '#2563eb';
-  btn.style.color = '#fff';
-  btn.style.border = 'none';
-  btn.style.borderRadius = '8px';
-  btn.style.cursor = 'pointer';
-  btn.onclick = toggleTheme;
-  document.body.appendChild(btn);
-</script>
-
-<script>
-  tsParticles.load("tsparticles", {
-    fullScreen: { enable: false },
-    background: { color: { value: "transparent" } },
-    particles: {
-      color: { value: "#38bdf8" },
-      links: { enable: true, color: "#38bdf8" },
-      move: { enable: true, speed: 1 },
-      number: { value: 60 },
-      opacity: { value: 0.6 },
-      size: { value: 2 },
-    },
-    interactivity: {
-      events: { onHover: { enable: true, mode: "repulse" } },
-    }
-  });
-</script>
-
+    // tsParticles init
+    tsParticles.load("tsparticles", {
+      background: { color: { value: "#0c0c0c" } },
+      fpsLimit: 60,
+      particles: {
+        number: { value: 80 },
+        color: { value: "#e23636" },
+        shape: { type: "circle" },
+        opacity: { value: 0.4 },
+        size: { value: 3 },
+        links: {
+          enable: true,
+          distance: 150,
+          color: "#1e3a8a",
+          opacity: 0.3,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1.5,
+          direction: "none",
+          random: false,
+          straight: false,
+          outModes: { default: "out" }
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { quantity: 4 }
+        }
+      },
+      detectRetina: true
+    });
+  </script>
 </body>
 </html>
