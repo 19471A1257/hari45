@@ -6,6 +6,41 @@
   <title>Harichandraprasad Sriram | Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    <style>
+  /* existing styles ... */
+
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-left {
+    animation: slideInLeft 1s ease-out;
+  }
+
+  .animate-right {
+    animation: slideInRight 1s ease-out;
+  }
+</style>
+
+    
     * {
       margin: 0;
       padding: 0;
@@ -174,11 +209,13 @@
     <a href="#resume">Resume</a>
   </nav>
 
-  <section id="about">
+ <section id="about">
   <h2>About Me</h2>
   <div class="card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
-    <img src="hari5-photo.jpg" alt="Harichandraprasad Sriram" style="width: 200px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" />
-    <p style="flex: 1;">
+    <img src="my-photo.jpg" alt="Harichandraprasad Sriram"
+         class="animate-left"
+         style="width: 200px; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.3);" />
+    <p class="animate-right" style="flex: 1;">
       I’m Harichandraprasad Sriram, a passionate Full Stack Developer with a Master's in Information Systems from Saint Louis University.
       I specialize in building robust web applications using Java, Spring Boot, React, and cloud-native tools like AWS and Docker.<br /><br />
       I enjoy transforming ideas into scalable, high-performance solutions. Whether it's integrating CI/CD pipelines, deploying services to the cloud,
@@ -186,6 +223,8 @@
     </p>
   </div>
 </section>
+
+
 
 
   <section id="projects">
