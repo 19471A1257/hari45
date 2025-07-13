@@ -63,3 +63,99 @@
 
     nav a {
       color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .container {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section-heading span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-heading {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      background: #224e88;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .section-heading {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <header>
+    <h1>Hari Sriram</h1>
+    <p>Java Full Stack Developer</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    <h2 class="section-heading" id="about">About Me</h2>
+    <p>I am a passionate Java full-stack developer with experience in building web applications using Spring Boot, React, and modern development tools.</p>
+
+    <h2 class="section-heading" id="projects">Projects</h2>
+    <p>Explore some of my recent work including RESTful APIs, responsive frontend UIs, and integrated DevOps pipelines.</p>
+
+    <h2 class="section-heading" id="resume">Resume</h2>
+    <p>Check out my qualifications, work experience, education, and skills.</p>
+
+    <h2 class="section-heading" id="contact">Contact</h2>
+    <p>Let's connect! Reach out via email, LinkedIn, or GitHub.</p>
+  </div>
+
+  <script>
+    // Theme toggle
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      documen
