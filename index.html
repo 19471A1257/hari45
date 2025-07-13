@@ -4,7 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hari Sriram | Developer Portfolio</title>
+
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- AOS Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
     :root {
       --bg-light: #f5f7fa;
@@ -12,6 +19,7 @@
       --bg-dark: #1a1a2e;
       --text-dark: #e2e8f0;
       --accent: #2b6cb0;
+      --button-hover: #224e88;
     }
 
     * {
@@ -94,6 +102,34 @@
       font-weight: 600;
     }
 
+    .btn {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: floatBtn 3s ease-in-out infinite;
+    }
+
+    @keyframes floatBtn {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: var(--button-hover);
+      box-shadow: 0 5px 15px rgba(43, 108, 176, 0.5);
+    }
+
     .theme-toggle {
       position: fixed;
       top: 1rem;
@@ -105,14 +141,34 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: 600;
-      transition: background 0.3s ease;
     }
 
     .theme-toggle:hover {
       background: #224e88;
     }
 
-    /* Responsive */
+    form {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin-inline: auto;
+    }
+
+    input, textarea {
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
@@ -121,18 +177,23 @@
       .section-heading {
         font-size: 2rem;
       }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
 
-  <header>
+  <header data-aos="fade-down">
     <h1>Hari Sriram</h1>
     <p>Java Full Stack Developer</p>
   </header>
 
-  <nav>
+  <nav data-aos="fade-up">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#resume">Resume</a>
@@ -141,27 +202,39 @@
 
   <div class="container">
     <h2 class="section-heading" id="about">About Me</h2>
-    <p>I am a passionate Java full-stack developer with experience in building web applications using Spring Boot, React, and modern development tools.</p>
+    <p data-aos="fade-up">I am a passionate Java full-stack developer with experience in building web applications using Spring Boot, React, and modern development tools.</p>
+    <a href="#projects" class="btn" data-aos="zoom-in"><i class="fas fa-arrow-down"></i> See My Projects</a>
 
     <h2 class="section-heading" id="projects">Projects</h2>
-    <p>Explore some of my recent work including RESTful APIs, responsive frontend UIs, and integrated DevOps pipelines.</p>
+    <p data-aos="fade-up">Explore some of my recent work including RESTful APIs, responsive frontend UIs, and integrated DevOps pipelines.</p>
+    <a href="https://github.com/yourusername" target="_blank" class="btn" data-aos="zoom-in"><i class="fab fa-github"></i> View GitHub</a>
 
     <h2 class="section-heading" id="resume">Resume</h2>
-    <p>Check out my qualifications, work experience, education, and skills.</p>
+    <p data-aos="fade-up">Check out my qualifications, work experience, education, and skills.</p>
+    <a href="resume.pdf" download class="btn" data-aos="zoom-in"><i class="fas fa-download"></i> Download Resume</a>
 
     <h2 class="section-heading" id="contact">Contact</h2>
-    <p>Let's connect! Reach out via email, LinkedIn, or GitHub.</p>
+    <p data-aos="fade-up">Let's connect! Reach out via this form or my LinkedIn/GitHub.</p>
+    
+    <form data-aos="fade-up">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
   </div>
 
+  <!-- AOS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Theme toggle
+    AOS.init();
+
     function toggleTheme() {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', newTheme);
     }
 
-    // Animated headings
     document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".section-heading").forEach(el => {
         const text = el.innerText;
