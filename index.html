@@ -9,7 +9,11 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html, body {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       height: 100%;
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
@@ -57,10 +61,19 @@
     header h1 {
       font-size: 3rem;
       color: #fdd835;
+      animation: floatText 3s ease-in-out infinite;
+      text-shadow: 0 0 10px #fdd835, 0 0 20px #fdd835, 0 0 30px #ff0;
     }
 
-    header p {
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    #typed-text {
       font-size: 1.2rem;
+      margin-top: 0.5rem;
+      height: 1.5rem;
     }
 
     nav {
@@ -70,6 +83,7 @@
       flex-wrap: wrap;
       padding: 1rem;
       background: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       backdrop-filter: blur(10px);
       z-index: 2;
       position: relative;
@@ -90,24 +104,37 @@
     }
 
     h2 {
-      color: #ff4444;
+      color: #fdd835;
       font-size: 2rem;
       margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px #fdd835, 0 0 20px #fdd835, 0 0 30px #ff0;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
       padding: 2rem;
       margin-bottom: 2rem;
       backdrop-filter: blur(10px);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s;
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 15px #fdd835;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     footer {
@@ -143,7 +170,7 @@
   <!-- Hero Header -->
   <header>
     <h1>Harichandraprasad Sriram</h1>
-    <p>Full Stack Developer | Cloud Enthusiast | Creator</p>
+    <p id="typed-text"></p>
   </header>
 
   <!-- Navigation -->
@@ -156,11 +183,10 @@
   </nav>
 
   <!-- About Section -->
-  <section id="about">
+  <section id="about" class="fade-in">
     <h2>About Me</h2>
     <div class="card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
-     <img src="hari5-photo.jpg" alt="Hari" style="width: 300px; max-width: 100%; border-radius: 16px; box-shadow: 0 0 20px #000;" />
-
+      <img src="hari5-photo.jpg" alt="Hari" style="width: 300px; max-width: 100%; border-radius: 16px; box-shadow: 0 0 20px #000;" />
       <p style="flex: 1;">
         I'm Harichandraprasad Sriram, a Full Stack Developer with a Master's in Information Systems from Saint Louis University. <br><br>
         Skilled in Java, Spring Boot, React, and AWS. I love building elegant solutions with performance and scalability in mind.
@@ -169,7 +195,7 @@
   </section>
 
   <!-- Projects -->
-  <section id="projects">
+  <section id="projects" class="fade-in">
     <h2>Projects</h2>
     <div class="card">
       <h3>Smart Feedback System</h3>
@@ -179,13 +205,10 @@
       <h3>eCommerce Platform</h3>
       <p>Full-stack site with JWT auth, Stripe integration, React frontend and Java backend.</p>
     </div>
-    </div>
-    
-
   </section>
 
   <!-- Certifications -->
-  <section id="certifications">
+  <section id="certifications" class="fade-in">
     <h2>Certifications</h2>
     <div class="card">
       <h3>AWS Certified Cloud Practitioner</h3>
@@ -207,17 +230,16 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <h2>Contact</h2>
     <div class="card contact">
       <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a></p>
-      
     </div>
   </section>
 
   <!-- Resume -->
-  <section id="resume">
+  <section id="resume" class="fade-in">
     <h2>Resume</h2>
     <div class="card">
       <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color: #fdd835; font-weight: bold;">📄 Download My Resume</a>
@@ -229,8 +251,26 @@
     &copy; 2025 Harichandraprasad Sriram — All Rights Reserved
   </footer>
 
-  <!-- JavaScript for Particles and Dark Mode -->
+  <!-- JavaScript for Particles, Typewriter, Theme, Scroll Anim -->
   <script>
+    // Typewriter Effect
+    const texts = ["Full Stack Developer", "Cloud Enthusiast", "Creator"];
+    let count = 0, index = 0, currentText = '', letter = '';
+    (function type() {
+      if (count === texts.length) count = 0;
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+      document.getElementById('typed-text').textContent = letter;
+      if (letter.length === currentText.length) {
+        count++;
+        index = 0;
+        setTimeout(type, 1500);
+      } else {
+        setTimeout(type, 100);
+      }
+    })();
+
+    // Particle.js
     tsParticles.load("tsparticles", {
       background: { color: { value: "#00000000" } },
       particles: {
@@ -247,6 +287,20 @@
       }
     });
 
+    // Scroll Fade-in
+    document.addEventListener("DOMContentLoaded", () => {
+      const faders = document.querySelectorAll(".fade-in");
+      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.2 });
+      faders.forEach(fader => appearOnScroll.observe(fader));
+    });
+
+    // Theme Toggle Button
     const toggleTheme = () => {
       const current = document.documentElement.getAttribute('data-theme');
       document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
@@ -263,8 +317,20 @@
     toggleBtn.style.border = 'none';
     toggleBtn.style.borderRadius = '5px';
     toggleBtn.style.cursor = 'pointer';
+    toggleBtn.style.animation = 'pulse 2s infinite';
     toggleBtn.onclick = toggleTheme;
     document.body.appendChild(toggleBtn);
+
+    // Pulse animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </body>
 </html>
