@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spidey Hari | Developer Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spider-Man Portfolio | Harichandraprasad Sriram</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,154 +13,228 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(145deg, #0d0d0d, #e50914);
-      color: #fefefe;
+      font-family: 'Poppins', sans-serif;
+      transition: background 0.5s, color 0.5s;
+      background: linear-gradient(135deg, #0c0f1d, #1a1a2e);
+      color: #e2e8f0;
       overflow-x: hidden;
-      position: relative;
     }
 
-    .web-bg {
-      position: absolute;
+    body::before {
+      content: "";
+      position: fixed;
       top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/web.png');
-      opacity: 0.05;
-      z-index: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png');
+      opacity: 0.04;
+      z-index: -1;
     }
 
     header {
       text-align: center;
-      padding: 4rem 1rem;
-      z-index: 1;
-      position: relative;
+      padding: 4rem 2rem;
+      background: #e11d48;
+      color: white;
     }
 
     header h1 {
+      font-family: 'Orbitron', sans-serif;
       font-size: 3rem;
-      color: #f5c518;
-      text-shadow: 2px 2px 5px #000;
-      animation: swingIn 1s ease;
     }
 
     header p {
       font-size: 1.2rem;
-      color: #a0f0ff;
+      margin-top: 0.5rem;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      background: #1a1a1a;
+      gap: 2rem;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
       padding: 1rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
     nav a {
-      color: #f5c518;
+      color: #fcd34d;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1rem;
     }
 
     section {
-      padding: 3rem 2rem;
-      max-width: 900px;
+      padding: 4rem 2rem;
+      max-width: 1000px;
       margin: auto;
-      z-index: 1;
-      position: relative;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      border-left: 4px solid #e11d48;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .card {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
+      border-radius: 16px;
       padding: 2rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      animation: fadeIn 1s ease;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
     }
 
-    h2 {
-      font-size: 1.8rem;
-      color: #ffcc00;
-      margin-bottom: 1rem;
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .photo-box {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .photo-box img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fcd34d;
+      box-shadow: 0 0 12px #fcd34d;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      background: #0a0a0a;
-      color: #aaa;
+      font-size: 0.9rem;
+      background: #0f172a;
+      color: #cbd5e0;
     }
 
-    a {
-      color: #ff6666;
+    .contact a {
+      color: #fcd34d;
+      text-decoration: none;
     }
 
-    @keyframes swingIn {
-      0% { transform: rotateX(90deg); opacity: 0; }
-      100% { transform: rotateX(0); opacity: 1; }
+    /* Toggle Button */
+    .theme-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: #fcd34d;
+      border: none;
+      color: #1a1a1a;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .photo-box {
+        flex-direction: column;
+        align-items: center;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="web-bg"></div>
   <header>
-    <h1>Spidey Hari</h1>
-    <p>Friendly Neighborhood Full Stack Developer</p>
+    <h1>Harichandraprasad Sriram</h1>
+    <p>🕸️ Full Stack Web Developer | Cloud Enthusiast</p>
   </header>
 
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
-    <a href="#certs">Certifications</a>
+    <a href="#certifications">Certifications</a>
     <a href="#contact">Contact</a>
+    <a href="#resume">Resume</a>
   </nav>
 
   <section id="about">
     <h2>🕷️ About Me</h2>
-    <div class="card">
-      I’m Harichandraprasad Sriram, a Full Stack Developer inspired by heroes who solve problems quickly and creatively.
-      Like Spidey, I build web solutions using React, Spring Boot, AWS, and secure backend systems with great power and great responsibility.
+    <div class="card photo-box">
+      <img src="hari5-photo.jpg" alt="Hari's Photo">
+      <p>
+        Hi! I’m Harichandraprasad Sriram, a passionate Full Stack Developer with a Master’s degree in Information Systems. I specialize in crafting dynamic web applications using Java, Spring Boot, React, and AWS. I thrive at the intersection of creativity and code—always ready to sling some logic like Spider-Man slings webs!
+      </p>
     </div>
   </section>
 
   <section id="projects">
-    <h2>💻 Projects</h2>
+    <h2>💡 Projects</h2>
     <div class="card">
-      <strong>Smart Feedback System:</strong> Secure feedback app with analytics and access roles using Spring Boot + PostgreSQL.
+      <h3>Smart Feedback System</h3>
+      <p>A secure feedback platform with role-based access and analytics. Built using Spring Boot and PostgreSQL.</p>
     </div>
     <div class="card">
-      <strong>eCommerce Platform:</strong> Shopping platform with payment gateway, JWT security, and React frontend.
+      <h3>eCommerce Platform</h3>
+      <p>Full-stack shopping site with JWT authentication and Stripe integration. Tech: React + Java backend.</p>
     </div>
   </section>
 
-  <section id="certs">
-    <h2>📜 Certifications</h2>
+  <section id="certifications">
+    <h2>🎓 Certifications</h2>
     <div class="card">
-      AWS Cloud Practitioner, Java Full Stack Developer, Agile Jira, AI for Everyone - Coursera.
+      <h3>AWS Certified Cloud Practitioner</h3>
+      <p>Validated knowledge of AWS Cloud, services, and security best practices.</p>
+    </div>
+    <div class="card">
+      <h3>Java Full Stack Developer</h3>
+      <p>Mastered Spring Boot, REST APIs, React, and deployment tools in production projects.</p>
+    </div>
+    <div class="card">
+      <h3>AI for Everyone – Coursera</h3>
+      <p>By Andrew Ng – <a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">View Certificate</a></p>
+    </div>
+    <div class="card">
+      <h3>Python Core – SoloLearn</h3>
+      <p><a href="solo learn certificate.pdf" download>📄 Download Certificate</a></p>
     </div>
   </section>
 
   <section id="contact">
-    <h2>📫 Contact</h2>
+    <h2>📬 Contact</h2>
+    <div class="card contact">
+      <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram-801777241</a></p>
+      <p>GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank">github.com/HarichandraprasadSri</a></p>
+    </div>
+  </section>
+
+  <section id="resume">
+    <h2>📄 Resume</h2>
     <div class="card">
-      Email: hariprasad45x@gmail.com<br>
-      LinkedIn: <a href="https://linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a><br>
-      GitHub: <a href="https://github.com/HarichandraprasadSri" target="_blank">github.com/HarichandraprasadSri</a>
+      <a href="Hari-Chandra-Prasad-Resume 3.pdf" download style="color: #fcd34d; font-weight: bold;">📥 Download My Resume</a>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Spidey Hari — All Rights Reserved
+    &copy; 2025 Harichandraprasad Sriram — Spidey Coded 🕸️
   </footer>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
 </body>
 </html>
