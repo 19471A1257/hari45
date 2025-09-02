@@ -140,15 +140,47 @@
   </div>
 </div>
 <script>
-  function openCS(url){
-    document.getElementById('cs-frame').src = url;
-    document.getElementById('cs-modal').style.display = 'block';
+  function isSameSite(url) {
+    const u = new URL(url, location.href);
+    return u.origin === location.origin;
   }
+
+  async function openCS(url){
+    const absolute = new URL(url, location.href).href;
+
+    // GitHub (docs.github.com / github.com) blocks iframes.
+    if (!isSameSite(absolute)) {
+      window.open(absolute, '_blank');
+      return;
+    }
+
+    // Preflight: does the case-study file actually exist?
+    try {
+      const res = await fetch(absolute, { method: 'HEAD', cache: 'no-store' });
+      if (!res.ok) throw new Error('Missing file: ' + absolute);
+
+      // Show modal if file exists
+      const modal = document.getElementById('cs-modal');
+      const frame = document.getElementById('cs-frame');
+      frame.src = absolute;
+      modal.style.display = 'block';
+
+      // Safety fallback: if frame still doesn’t render, open in new tab
+      const t = setTimeout(() => window.open(absolute, '_blank'), 2500);
+      frame.onload = () => clearTimeout(t);
+    } catch (e) {
+      console.warn(e);
+      window.open(absolute, '_blank');
+    }
+  }
+
   function closeCS(){
-    document.getElementById('cs-frame').src = '';
+    const frame = document.getElementById('cs-frame');
+    frame.src = '';
     document.getElementById('cs-modal').style.display = 'none';
   }
 </script>
+
 
 
   <!-- Particle Background -->
