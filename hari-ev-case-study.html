@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hari EV — UX Case Study</title>
+  <style>
+    :root{
+      --bg:#0f0f0f; --card:#141414; --muted:#9aa0a6; --text:#e8eaed; --accent:#7dd3fc;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:linear-gradient(135deg,#0a0a0a,#101113); color:var(--text);}
+    .container{max-width:1080px; margin:0 auto; padding:32px 20px 80px;}
+    .hero{padding:32px; background:linear-gradient(180deg,rgba(125,211,252,.08),transparent), var(--card); border:1px solid #1f2937; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .eyebrow{letter-spacing:.2em; text-transform:uppercase; color:var(--muted); font-weight:600; font-size:12px}
+    h1{font-size:36px; margin:8px 0 10px}
+    .sub{color:var(--muted); margin:0 0 16px}
+    .meta{display:flex; gap:20px; flex-wrap:wrap; margin:18px 0}
+    .meta div{background:#111418; padding:10px 14px; border-radius:12px; border:1px solid #23262b; font-size:14px}
+    section{margin-top:42px; padding:24px; background:var(--card); border:1px solid #20242a; border-radius:18px}
+    h2{font-size:24px; margin:0 0 12px}
+    h3{font-size:18px; margin:18px 0 6px}
+    p{line-height:1.6; color:#e5e7eb}
+    ul{padding-left:18px}
+    li{margin:6px 0}
+    .grid{display:grid; gap:16px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .chip{display:inline-block; padding:6px 10px; border-radius:999px; background:#0b1720; border:1px solid #1c2832; color:#bfe4ff; font-size:12px; margin:4px 6px 0 0}
+    .callout{border-left:4px solid var(--accent); padding:10px 14px; background:#0b1320; border-radius:8px; color:#cdeaff}
+    .figure{background:#0c0e12; border:1px dashed #2a3140; height:220px; border-radius:14px; display:flex; align-items:center; justify-content:center; color:#7aa5c7; font-size:14px}
+    .footer{margin-top:52px; text-align:center; color:var(--muted)}
+    a.button{display:inline-block; margin-top:10px; padding:10px 14px; border-radius:12px; background:#0e1a23; border:1px solid #203142; color:#bfe4ff; text-decoration:none}
+    @media (max-width:720px){
+      .grid-2,.grid-3{grid-template-columns:1fr}
+      h1{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="eyebrow">UX Case Study</div>
+      <h1>Hari EV — Charging & Vehicle Experience</h1>
+      <p class="sub">Designing a seamless EV app for charging access, battery insights, and vehicle health.</p>
+      <div class="meta">
+        <div><strong>Role:</strong> UX & UI Designer</div>
+        <div><strong>Duration:</strong> 4 Weeks</div>
+        <div><strong>Tools:</strong> Figma · FigJam · Google Forms · Google Docs · Photoshop · Illustrator</div>
+      </div>
+      <div>
+        <span class="chip">Mobile UX</span>
+        <span class="chip">Service Design</span>
+        <span class="chip">Design Systems</span>
+        <span class="chip">Usability Testing</span>
+      </div>
+    </div>
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>Hari EV is a mobile platform that helps EV owners quickly discover compatible charging stations, plan reliable routes, and understand battery health—reducing range anxiety and decision friction.</p>
+      <div class="callout">Scope: Research → Competitive Analysis → IA → Wireframes → Visual Design → Hi‑Fi Prototype</div>
+    </section>
+
+    <section id="problem">
+      <h2>Problem & Goals</h2>
+      <div class="grid grid-2">
+        <div>
+          <h3>Challenges</h3>
+          <ul>
+            <li>Limited visibility into reliable, nearby charging stations</li>
+            <li>Complex battery information and unclear health indicators</li>
+            <li>Fragmented support for vehicle monitoring and maintenance</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Goals</h3>
+          <ul>
+            <li>Real‑time charging availability and compatibility</li>
+            <li>Clear, human‑readable battery status and guidance</li>
+            <li>Intuitive navigation and EV‑friendly route planning</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>User Research</h2>
+      <p>Surveys and interviews revealed recurring themes: charging accessibility gaps, uncertainty around battery health, and demand for a cleaner, more guided UI.</p>
+      <div class="grid grid-3">
+        <div class="figure">Insert research charts / summaries</div>
+        <div class="figure">Key quotes & pain points</div>
+        <div class="figure">Personas / scenarios</div>
+      </div>
+    </section>
+
+    <section id="competitive">
+      <h2>Competitive Analysis</h2>
+      <p>Reviewed leading EV apps (e.g., ElectricPe, Charging Zone, Statiq) across dimensions like connection flow, accessibility, UI quality, and availability.</p>
+      <div class="grid grid-3">
+        <div class="figure">Comparison table visual</div>
+        <div class="figure">Strengths & gaps</div>
+        <div class="figure">Opportunities</div>
+      </div>
+    </section>
+
+    <section id="process">
+      <h2>Process</h2>
+      <div class="grid grid-5">
+        <div class="chip">Empathize</div>
+        <div class="chip">Define</div>
+        <div class="chip">Ideate</div>
+        <div class="chip">Design</div>
+        <div class="chip">Test</div>
+      </div>
+      <p style="margin-top:10px">I followed an iterative, hypothesis‑driven approach with usability feedback loops at each milestone.</p>
+    </section>
+
+    <section id="ia">
+      <h2>Information Architecture</h2>
+      <div class="figure">Sitemap: Start → Auth → Home → Nearby Stations → Station Details → Vehicle → Settings → Help</div>
+      <p>Clear entry points to the top three jobs‑to‑be‑done—find stations, check battery health, and navigate—reduced time‑to‑value for new users.</p>
+    </section>
+
+    <section id="wireframes">
+      <h2>Wireframes → Hi‑Fi</h2>
+      <div class="grid grid-2">
+        <div>
+          <h3>Low‑Fidelity</h3>
+          <div class="figure">Placeholders for low‑fi screens</div>
+        </div>
+        <div>
+          <h3>High‑Fidelity</h3>
+          <div class="figure">Placeholders for hi‑fi screens</div>
+        </div>
+      </div>
+      <p>Typography, color, and layout emphasize legibility and quick scanning in outdoor environments.</p>
+    </section>
+
+    <section id="outcomes">
+      <h2>Outcomes & Next Steps</h2>
+      <ul>
+        <li>Faster discovery of compatible stations via map + filters</li>
+        <li>Reduced cognitive load for battery status and guidance</li>
+        <li>Systematic IA that scales to maintenance, history, and resources</li>
+      </ul>
+      <p>Next: Expand testing with diverse vehicles and charging networks; add offline caching and price transparency.</p>
+    </section>
+
+    <div class="footer">
+      <p>Want the full PDF? Use the button below.</p>
+    </div>
+  </div>
+</body>
+</html>
