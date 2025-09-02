@@ -132,6 +132,24 @@
   </style>
 </head>
 <body>
+	<!-- Modal -->
+<div id="cs-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;">
+  <div style="max-width:1200px;height:85vh;margin:5vh auto;background:#111;border-radius:12px;overflow:hidden;position:relative;">
+    <button onclick="closeCS()" style="position:absolute;top:10px;right:10px;background:#f44336;color:#fff;border:0;padding:.5rem .75rem;border-radius:6px;cursor:pointer;z-index:2">Close</button>
+    <iframe id="cs-frame" src="" style="width:100%;height:100%;border:0"></iframe>
+  </div>
+</div>
+<script>
+  function openCS(url){
+    document.getElementById('cs-frame').src = url;
+    document.getElementById('cs-modal').style.display = 'block';
+  }
+  function closeCS(){
+    document.getElementById('cs-frame').src = '';
+    document.getElementById('cs-modal').style.display = 'none';
+  }
+</script>
+
 
   <!-- Particle Background -->
   <div id="tsparticles"></div>
@@ -221,16 +239,19 @@ Worked
   </section>
 
   <!-- Projects -->
-<section id="projects">
+	<section id="projects">
   <h2>Projects</h2>
 
-  <!-- 🔥 CASE STUDY PLAY CARD -->
-  <div class="card" onclick="window.open('UI_UX Case Study Template - Hari EV Mobile Application (Community) (1)', '_blank')">
-    <h2>Vida EV Mobile App – UX Case Study</h2>
-    <p>End-to-end UI/UX process for an electric vehicle ride-sharing app.</p>
-    <p><strong>Research → Wireframes → UI → Prototype</strong></p>
-    <p style="color: #fdd835;">▶️ Click to View Case Study</p>
-  </div>
+  <!-- UX Case Study -->
+  <div class="card" onclick="openCS('./case-studies/hari-ev/')">
+  <h2>Hari EV Mobile App — UX Case Study</h2>
+  <p>▶️ Click to View Case Study</p>
+</div>
+
+
+  <!-- ...your other project cards... -->
+</section>
+
 
   <!-- Your other projects -->
   <div class="card">
