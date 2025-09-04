@@ -2,438 +2,196 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harichandraprasad Sriram — UI/UX Designer
-  “Designing thoughtful user experiences that solve real problems.”</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hari EV — UX Case Study | Harichandraprasad Sriram</title>
+  <meta name="description" content="End‑to‑end UX case study for Hari EV: research, empathy, IA, competitive analysis, wireframes, and hi‑fi UI." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html, body {
-      height: 100%;
-      font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-      background: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #141414, #0d0d0d);
-      background-size: 400% 400%;
-      animation: gradientBG 20s ease infinite;
-      color: #fdd835;
+    :root{
+      --bg:#0f0f0f; --panel:#161616; --ink:#fdd835; --muted:#c9c9c9; --red:#ff4444; --line:#252525;
     }
-
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:#eaeaea;font-family:'Poppins',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:var(--ink);text-decoration:none}
+    img{max-width:100%;height:auto;border-radius:14px;display:block}
+    .container{max-width:1100px;margin:0 auto;padding:24px 18px 80px}
+    /* Header */
+    .topbar{
+      position:sticky;top:0;z-index:20;background:rgba(15,15,15,.7);
+      backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid var(--line)
     }
-
-    #tsparticles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
+    .topwrap{max-width:1100px;margin:0 auto;padding:10px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:10px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--ink);box-shadow:0 0 12px var(--ink)}
+    .title{font-weight:600}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{
+      background:transparent;border:1px solid var(--ink);color:var(--ink);
+      padding:.55rem .85rem;border-radius:10px;font-weight:600;cursor:pointer
     }
-
-    video.bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      filter: brightness(0.2) blur(2px);
+    .btn.primary{background:#f44336;border-color:#f44336;color:#fff}
+    /* Progress bar */
+    .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--ink),#fff);width:0%;z-index:30}
+    /* Layout */
+    .hero{display:grid;gap:22px;grid-template-columns:1.2fr .8fr;align-items:center;margin-top:16px}
+    .hero h1{margin:0 0 6px;font-size:34px;color:#fff}
+    .eyebrow{letter-spacing:.18em;text-transform:uppercase;color:#9aa0a6;font-size:12px;margin-bottom:6px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .chip{border:1px solid #2a2a2a;background:#121212;color:#bfe4ff;border-radius:999px;padding:6px 10px;font-size:12px}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+    hr.sep{border:0;border-top:1px solid var(--line);margin:28px 0}
+    /* TOC */
+    .toc{position:sticky;top:66px;align-self:start}
+    .toc .panel{padding:14px}
+    .toc h3{margin:0 0 10px;font-size:14px;color:#9aa0a6;text-transform:uppercase;letter-spacing:.14em}
+    .toc a{display:block;padding:8px 10px;border-radius:8px;color:#ddd}
+    .toc a:hover{background:#1b1b1b}
+    .grid{display:grid;gap:18px}
+    .grid-2{grid-template-columns:1fr 1fr}
+    .caption{font-size:13px;color:var(--muted);margin-top:8px}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .toc{position:static;margin-top:10px}
     }
-
-    header {
-      text-align: center;
-      padding: 4rem 2rem;
-      backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 2;
-      position: relative;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      color: #fdd835;
-    }
-
-    header p {
-      font-size: 1.2rem;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      z-index: 2;
-      position: relative;
-    }
-
-    nav a {
-      color: #fdd835;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    h2 {
-      color: #ff4444;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px #fdd835;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(0,0,0,0.7);
-      color: #fdd835;
-      backdrop-filter: blur(10px);
-    }
-
-    .contact a {
-      color: #fdd835;
-      text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      section { padding: 2rem 1rem; }
-      .card { padding: 1.5rem; }
-    }
+    footer{margin-top:40px;color:var(--muted);text-align:center}
+    .h2{font-size:24px;margin:4px 0 10px;color:var(--red)}
+    .lead{color:#e5e5e5}
   </style>
 </head>
 <body>
-	<!-- Modal -->
-<div id="cs-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;">
-  <div style="max-width:1200px;height:85vh;margin:5vh auto;background:#111;border-radius:12px;overflow:hidden;position:relative;">
-    <button onclick="closeCS()" style="position:absolute;top:10px;right:10px;background:#f44336;color:#fff;border:0;padding:.5rem .75rem;border-radius:6px;cursor:pointer;z-index:2">Close</button>
-    <iframe id="cs-frame" src="" style="width:100%;height:100%;border:0"></iframe>
-  </div>
-</div>
-<script>
-  function isSameSite(url) {
-    const u = new URL(url, location.href);
-    return u.origin === location.origin;
-  }
+  <div class="progress" id="progress"></div>
 
-  async function openCS(url){
-    const absolute = new URL(url, location.href).href;
-
-    // GitHub (docs.github.com / github.com) blocks iframes.
-    if (!isSameSite(absolute)) {
-      window.open(absolute, '_blank');
-      return;
-    }
-
-    // Preflight: does the case-study file actually exist?
-    try {
-      const res = await fetch(absolute, { method: 'HEAD', cache: 'no-store' });
-      if (!res.ok) throw new Error('Missing file: ' + absolute);
-
-      // Show modal if file exists
-      const modal = document.getElementById('cs-modal');
-      const frame = document.getElementById('cs-frame');
-      frame.src = absolute;
-      modal.style.display = 'block';
-
-      // Safety fallback: if frame still doesn’t render, open in new tab
-      const t = setTimeout(() => window.open(absolute, '_blank'), 2500);
-      frame.onload = () => clearTimeout(t);
-    } catch (e) {
-      console.warn(e);
-      window.open(absolute, '_blank');
-    }
-  }
-
-  function closeCS(){
-    const frame = document.getElementById('cs-frame');
-    frame.src = '';
-    document.getElementById('cs-modal').style.display = 'none';
-  }
-</script>
-
-
-
-  <!-- Particle Background -->
-  <div id="tsparticles"></div>
-
-  <!-- Cinematic Video Background -->
-  <video autoplay muted loop class="bg-video">
-    <source src="https://cdn.pixabay.com/vimeo/377749326/code-typing-26510.mp4?width=1920&hash=9b34039c8fcf5f1d81240f002ea9f9d9298799c3" type="video/mp4">
-  </video>
-
-  <!-- Hero Header -->
-  <header>
-    <h1>Harichandraprasad Sriram</h1>
-    <p>“Designing thoughtful user experiences that solve real problems.”</p>
-  </header>
-
-  <!-- Navigation -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">My work</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#contact">Contact</a>
-    <a href="#resume">Resume</a>
-  </nav>
-
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
-     <img src="Hari9-photo.jpg" alt="Hari" style="width: 500px; max-width: 100%; border-radius: 16px; box-shadow: 0 0 20px #000;" />
-
-
-      <p style="flex: 1;">
-       I'm a highly skilled and results-driven UI/UX Designer with over 3 years of experience delivering user-centric solutions across web and mobile platforms. I specialize in design systems, accessibility, and user research methodologies that drive measurable outcomes. My recent projects have improved user onboarding by 15%, reduced checkout drop-off by 30%, and accelerated development cycles through scalable component libraries.
-
-      </p>
+  <!-- Sticky header -->
+  <div class="topbar">
+    <div class="topwrap">
+      <div class="brand"><span class="dot"></span><span class="title">Hari EV — UX Case Study</span></div>
+      <div class="actions">
+        <a class="btn" href="./">← Back to Portfolio</a>
+        <a class="btn" href="Hari-EV-Case-Study.pdf" download>📄 Download PDF</a>
+        <button class="btn primary" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})">Contact</button>
+      </div>
     </div>
-  </section>
-  <section id="ProfessionalExperience">
-    <h2>Professional Experience</h2>
-    <div class="card">
-      <h2>UI/UX Designer at DXC Technologies 
-       present</h2>
-      <p>
-        
-        •
-Conducted a comprehensive 
-        • user research plan, including user interviews and usability testing, to inform design decisions for a new B2B SaaS platform for financial data management.
-Developed detailed 
-        • user personas and user journey maps to represent key users and identify critical pain points in the existing workflow.
-Designed and created 
-        • high-fidelity mockups and interactive prototypes using Figma, incorporating a pre-existing design system to ensure brand consistency and efficiency.
-Collaborated within an 
-        • Agile/Scrum environment with cross-functional teams, including product managers and engineers, to ensure the successful implementation of design solutions and a smooth handoff process.
-Presented design concepts and solutions in weekly sprints to internal and external stakeholders, effectively incorporating feedback• for iterative improvements to the platform's dashboard and reporting features.
-Applied principles of 
-        • responsive and adaptive design to ensure the platform was fully functional and visually consistent across desktop, tablet, and mobile devices.
-
-.</p>
-    </div>
-     <div class="card">
-       <h2>Senior UI/UX Designer | TatvaSoft
-        Jul 2021 – Jul 2023 | Ahmedabad, India</h2>
-     
-
-      <p>
-
-       Mentored and guided a team of 3 junior designers, providing training in 
-        •	User-Centered Design (UCD) principles and leading a 5day design sprint to define the core features for a new mobile artisan marketplace app. This included leading workshop facilitation and refining their skills in storyboarding and scenario mapping.
-Led the creation and implementation of a scalable 
-        • design system and component library in Figma, leveraging features like Auto Layout, Variants, and components to ensure consistency and improve team efficiency by 20% across multiple product teams. Collaborated with senior leadership to define the product roadmap, using insights from •	usability heuristics and cognitive psychology principles to prioritize features that enhanced user engagement and reduced friction within the app's primary user flows.
-Presented design solutions and project updates to internal and external stakeholders, using 
-        •	storytelling to communicate the value and strategic impact of design decisions.
-Ensured design solutions for multiple projects were optimized for a seamless 
-        •	responsive and adaptive design experience across web and mobile platforms.
-	UI/UX Designer	Aug 2020 – Jul 2021 | Hyderabad, India
-Executed 
-        • a comprehensive user research plan, including conducting moderated usability testing with 20+ vendors and performing in-depth user interviews to uncover critical pain points within the local artisan marketplace app's vendor onboarding flow. This research led to a 15% reduction in onboarding drop-off rate.
-Collaborated with product managers to create detailed • user personas and empathy maps to represent target users and inform design decisions throughout the project lifecycle.
-Developed comprehensive 
-        • user flows, wireframes, and interactive prototypes using Figma to effectively communicate design solutions to stakeholders and gather feedback in an iterative design process.
-Ensured all design solutions were • accessible and aligned with WCAG 2.1 standards for color contrast, typography, and screen reader compatibility, improving the user experience for individuals with disabilities.
-Worked 
-        • closely with cross-functional product and engineering teams within a Kanban framework to ensure seamless implementation and cross-browser compatibility of designs, resulting in a successful launch of the app's initial version. Participated • in A/B testing and heatmap analysis post-launch to monitor user behavior and identify opportunities for continuous improvement, contributing to data-driven design decisions.
-
-      </p>
-    </div>
-  </section>
-	<!-- Minimal Case Study Teaser Card -->
-<section class="card" id="hari-ev-teaser">
-  <h2>🚗 Hari EV Sector Platform – UX Case Study</h2>
-  <p>Case study exploring user research, design process, and visual UI for an EV support app.</p>
-
-  <button onclick="openCS('hari-ev-case-study.html')" style="background:#f44336;color:#fff;border:0;padding:.6rem .9rem;border-radius:8px;cursor:pointer;font-weight:600">
-    🔎 View Case Study
-  </button>
-</section>
-
-
-  <!-- Hari EV Visual UX Case Study (matching your existing file names) -->
-<section class="card" id="hari-ev-case-study" style="border-left: 4px solid #fdd835;">
-  <h2 style="margin-top:0">🚗 Hari EV Sector Platform – Visual UX Case Study</h2>
-
-  <p><strong>Tools:</strong> Figma, FigJam, Google Forms, Illustrator, Photoshop</p>
-  <p>This case study covers how I designed a full EV charging & vehicle support app from concept to prototype — including user research, wireframes, visual UI, and testing.</p>
-
-  <!-- Thumbnail grid with existing image file names -->
-  <div style="display:grid;grid-template-columns:1fr;gap:20px;margin-top:20px">
-    <img src="thumbnail.png" alt="Hari EV Intro" style="width:100%;border-radius:12px" />
-    <img src="product overview.png" alt="Product Overview" style="width:100%;border-radius:12px" />
-    <img src="problem statement.png" alt="Problem Statement" style="width:100%;border-radius:12px" />
-    <img src="Research.png" alt="User Research" style="width:100%;border-radius:12px" />
-    <img src="System architecture.png" alt="Information Architecture" style="width:100%;border-radius:12px" />
-    <img src="Competitive Analysis.png" alt="Competitive Analysis" style="width:100%;border-radius:12px" />
-    <img src="User Empathy.png" alt="User Empathy" style="width:100%;border-radius:12px" />
-    <img src="User persona #1.png" alt="User Persona" style="width:100%;border-radius:12px" />
-    <img src="processes #1.png" alt="Design Process" style="width:100%;border-radius:12px" />
-    <img src="Hi-Fi.png" alt="Visual Design Screens 1" style="width:100%;border-radius:12px" />
-    <img src="Hi-Fi-1.png" alt="Visual Design Screens 2" style="width:100%;border-radius:12px" />
-    <img src="Thanks.png" alt="Thank You" style="width:100%;border-radius:12px" />
   </div>
 
-  <!-- Buttons -->
-  <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
-    <a href="hari-ev-case-study.html" target="_blank" style="color:#fdd835;font-weight:600;border:1px solid #fdd835;padding:.6rem .9rem;border-radius:8px;text-decoration:none">↗ View Full Case Study</a>
-    <a href="Hari-EV-Case-Study.pdf" download style="color:#fdd835;font-weight:600;border:1px solid #fdd835;padding:.6rem .9rem;border-radius:8px;text-decoration:none">📄 Download PDF</a>
-  </div>
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <div class="eyebrow">UX Case Study</div>
+        <h1>Hari EV — Charging & Vehicle Experience</h1>
+        <p class="lead">Designing a seamless EV app for charging access, battery insights, and vehicle health.</p>
+        <div class="meta">
+          <span class="chip">Role: UX & UI Designer</span>
+          <span class="chip">Duration: 4 weeks</span>
+          <span class="chip">Tools: Figma · FigJam · Google Forms · Photoshop · Illustrator</span>
+        </div>
+        <div class="panel" style="margin-top:14px">
+          <strong style="color:var(--ink)">Outcome:</strong> faster discovery of compatible stations, clearer battery guidance, and an IA that prioritizes the top EV jobs-to-be-done.
+        </div>
+      </div>
+      <img src="thumbnail.png" alt="Hari EV hero preview" loading="eager">
+    </section>
 
-  <!-- Highlights -->
-  <div style="margin-top:18px;opacity:.9">
-    <h3 style="color:#ff4444;margin:0 0 10px">Highlights</h3>
-    <ul style="margin-left:1.1rem">
-      <li>Charging station discovery with compatibility filters</li>
-      <li>Clear battery health messaging and guidance</li>
-      <li>IA that prioritizes “find stations”, “battery status”, “navigate”</li>
-    </ul>
-  </div>
-</section>
+    <hr class="sep">
 
+    <!-- Body layout: TOC + content -->
+    <section class="grid grid-2">
+      <!-- TOC -->
+      <aside class="toc">
+        <div class="panel">
+          <h3>Contents</h3>
+          <a href="#overview">Overview</a>
+          <a href="#problem">Problem & Solution</a>
+          <a href="#empathy">User Empathy</a>
+          <a href="#persona">User Persona</a>
+          <a href="#research">User Research</a>
+          <a href="#ia">Information Architecture</a>
+          <a href="#competitive">Competitive Analysis</a>
+          <a href="#process">Design Process</a>
+          <a href="#visuals">Visual Design</a>
+          <a href="#thanks">Thanks</a>
+        </div>
+      </aside>
 
+      <!-- Content -->
+      <div>
+        <article id="overview" class="panel">
+          <div class="h2">Overview</div>
+          <img src="product overview.png" alt="Product overview slide" loading="lazy">
+          <p class="caption">High‑level goals, scope and platform positioning.</p>
+        </article>
 
-  <!-- Actions -->
-  <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:6px">
-    <!-- Opens in your modal (same-origin only, works on GitHub Pages) -->
-    <button onclick="openCS('hari-ev-case-study.html')" style="background:#f44336;color:#fff;border:0;padding:.6rem .9rem;border-radius:8px;cursor:pointer;font-weight:600">
-      🔎 View live case study
-    </button>
+        <article id="problem" class="panel">
+          <div class="h2">Problem & Solution</div>
+          <img src="problem statement.png" alt="Problem & solution slide" loading="lazy">
+          <p class="caption">Key challenges and proposed approach: charging accessibility + battery clarity.</p>
+        </article>
 
-    <!-- Opens full page (new tab) -->
-    <a href="hari-ev-case-study.html" target="_blank" style="color:#fdd835;font-weight:600;text-decoration:none;border:1px solid #fdd835;padding:.55rem .85rem;border-radius:8px">
-      ↗ Open full page
-    </a>
+        <article id="empathy" class="panel">
+          <div class="h2">User Empathy</div>
+          <img src="User Empathy.png" alt="Empathy map" loading="lazy">
+        </article>
 
-    <!-- Direct PDF download -->
-    <a href="Hari-EV-Case-Study.pdf" download style="color:#fdd835;font-weight:600;text-decoration:none;border:1px solid #fdd835;padding:.55rem .85rem;border-radius:8px">
-      📄 Download PDF
-    </a>
-  </div>
+        <article id="persona" class="panel">
+          <div class="h2">User Persona</div>
+          <img src="User persona #1.png" alt="User persona sheet" loading="lazy">
+        </article>
 
-  <!-- Quick outline (SEO + scannability) -->
-  <div style="margin-top:18px;opacity:.9">
-    <h3 style="color:#ff4444;margin:0 0 10px">Highlights</h3>
-    <ul style="margin-left:1.1rem">
-      <li>Charging station discovery with compatibility filters</li>
-      <li>Clear battery health messaging and guidance</li>
-      <li>IA that prioritizes “find stations”, “battery status”, “navigate”</li>
-    </ul>
-  </div>
-</section>
+        <article id="research" class="panel">
+          <div class="h2">User Research</div>
+          <img src="Research.png" alt="User research findings" loading="lazy">
+        </article>
 
+        <article id="ia" class="panel">
+          <div class="h2">Information Architecture</div>
+          <img src="System architecture.png" alt="IA / sitemap" loading="lazy">
+        </article>
 
-  <!-- Other projects (keep them inside this section) -->
-  
+        <article id="competitive" class="panel">
+          <div class="h2">Competitive Analysis</div>
+          <img src="Competitive Analysis.png" alt="Competitive analysis table" loading="lazy">
+        </article>
 
+        <article id="process" class="panel">
+          <div class="h2">Design Process</div>
+          <img src="processes #1.png" alt="Design process diagram" loading="lazy">
+        </article>
 
+        <article id="visuals" class="panel">
+          <div class="h2">Visual Design</div>
+          <img src="Hi-Fi.png" alt="Hi‑fi screens set 1" loading="lazy" style="margin-bottom:12px">
+          <img src="Hi-Fi-1.png" alt="Hi‑fi screens set 2" loading="lazy">
+        </article>
 
+        <article id="thanks" class="panel">
+          <div class="h2">Thanks</div>
+          <img src="Thanks.png" alt="Thank you slide" loading="lazy">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+            <a class="btn" href="./">← Back to Portfolio</a>
+            <a class="btn" href="Hari-EV-Case-Study.pdf" download>📄 Download PDF</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
+    <footer>
+      © 2025 Harichandraprasad Sriram — All Rights Reserved
+    </footer>
+  </main>
 
-
-  <!-- Certifications -->
-  <section id="certifications">
-    <h2>Certifications</h2>
-    
-    <div class="card">
-      <h2>AI For Everyone</h2>
-      <p>By Andrew Ng, Coursera. <a href="https://coursera.org/verify/9MQW9MHN4P9Z" target="_blank">🔗 View</a></p>
-    </div>
-    <div class="card">
-      <h2>Python Core – SoloLearn</h2>
-      <p>Demonstrated solid theoretical understanding of core Python concepts.<br>
-        <a href="solo%20learn%20certificate.pdf" download>📄 Download Certificate</a></p>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card contact">
-      <p>Email: <a href="mailto:hariprasad45x@gmail.com">hariprasad45x@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/hari-sriram-801777241" target="_blank">linkedin.com/in/hari-sriram</a></p>
-      
-    </div>
-  </section>
-
-  <!-- Resume -->
-  <section id="resume">
-    <h2>Resume</h2>
-    <div class="card">
-      <a href="Hari-Chandra-Prasad-UI-UX Engineer.pdf" download style="color: #fdd835; font-weight: bold;">📄 Download My Resume</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Harichandraprasad Sriram — All Rights Reserved
-  </footer>
-
-  <!-- JavaScript for Particles and Dark Mode -->
   <script>
-    tsParticles.load("tsparticles", {
-      background: { color: { value: "#00000000" } },
-      particles: {
-        number: { value: 60 },
-        size: { value: 3 },
-        move: { enable: true, speed: 1 },
-        links: { enable: true, distance: 150, color: "#fdd835", opacity: 0.5 },
-        color: { value: "#fdd835" },
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-        },
-      }
-    });
-
-    const toggleTheme = () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    // Scroll progress
+    const bar = document.getElementById('progress');
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+      bar.style.width = scrolled + '%';
     };
-
-    const toggleBtn = document.createElement('button');
-    toggleBtn.textContent = '🌓 Toggle Theme';
-    toggleBtn.style.position = 'fixed';
-    toggleBtn.style.bottom = '1rem';
-    toggleBtn.style.right = '1rem';
-    toggleBtn.style.padding = '0.5rem 1rem';
-    toggleBtn.style.backgroundColor = '#f44336';
-    toggleBtn.style.color = '#fff';
-    toggleBtn.style.border = 'none';
-    toggleBtn.style.borderRadius = '5px';
-    toggleBtn.style.cursor = 'pointer';
-    toggleBtn.onclick = toggleTheme;
-    document.body.appendChild(toggleBtn);
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
   </script>
 </body>
 </html>
